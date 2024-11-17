@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export default function Home() {
   const { userId } = auth();
 
-  if (userId) redirect("/notes");
+  if (userId) redirect("qbs");
 
   return (
     <main className="flex h-screen flex-col items-center justify-center gap-5">
@@ -22,7 +22,7 @@ export default function Home() {
         A quiz app to test your knowledge on various topics.
       </p>
       <Button size="lg" asChild>
-        <Link href="/notes">Open</Link>
+        <Link href="qbs">Open</Link>
       </Button>
     </main>
   );

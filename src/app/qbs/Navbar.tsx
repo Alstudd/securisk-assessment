@@ -1,20 +1,21 @@
 "use client";
 
 import logo from "@/assets/logo.png";
-import AIChatButton from "@/components/AIChatButton";
-import AddEditNoteDialog from "@/components/AddEditNoteDialog";
+import AddEditQuestionBankDialog from "@/components/AddEditQuestionBankDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Plus } from "lucide-react";
+import { Brain, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const { theme } = useTheme();
+  const router = useRouter();
 
   const [showAddEditNoteDialog, setShowAddEditNoteDialog] = useState(false);
 
@@ -22,7 +23,7 @@ export default function NavBar() {
     <>
       <div className="p-4 shadow">
         <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <Link href="/notes" className="flex items-center gap-3">
+          <Link href="qbs" className="flex items-center gap-3">
             <Image className="rounded-md" src={logo} alt="logo" width={55} height={55} />
             <span className="font-bold">Transformatrix Quiz</span>
           </Link>
@@ -37,13 +38,16 @@ export default function NavBar() {
             <ThemeToggleButton />
             <Button onClick={() => setShowAddEditNoteDialog(true)}>
               <Plus size={20} className="mr-2" />
-              Add Question Bank
+              Add QB
             </Button>
-            <AIChatButton />
+            <Button onClick={() => router.push("/quizzes")}>
+              <Brain size={20} className="mr-2" />
+              Quizzes
+            </Button>
           </div>
         </div>
       </div>
-      <AddEditNoteDialog
+      <AddEditQuestionBankDialog
         open={showAddEditNoteDialog}
         setOpen={setShowAddEditNoteDialog}
       />

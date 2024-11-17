@@ -1,0 +1,379 @@
+{
+  "subtopics": [
+    {
+      "name": "Change Management",
+      "questionSets": [
+        {
+          "quest": "What is the first step in managing organizational change?",
+          "options": [
+            "Assessing the need for change",
+            "Implementing the change",
+            "Communicating with stakeholders",
+            "Monitoring progress",
+            "Ignoring resistance"
+          ]
+        },
+        {
+          "quest": "Which of the following is most important when implementing change in a team?",
+          "options": [
+            "Effective communication",
+            "Strict supervision",
+            "Disregarding employee concerns",
+            "Focusing solely on deadlines",
+            "Not informing the team"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Time Management",
+      "questionSets": [
+        {
+          "quest": "What is the most effective method for prioritizing tasks?",
+          "options": [
+            "Using the Eisenhower Matrix",
+            "Completing tasks at random",
+            "Starting with the easiest tasks",
+            "Postponing complex tasks",
+            "Ignoring deadlines"
+          ]
+        },
+        {
+          "quest": "Which of these is a time management technique that helps minimize distractions?",
+          "options": [
+            "Time blocking",
+            "Procrastination",
+            "Working without breaks",
+            "Ignoring notifications",
+            "Waiting until the last minute"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Communication Skills",
+      "questionSets": [
+        {
+          "quest": "Which is the most effective form of communication in a team setting?",
+          "options": [
+            "Clear and concise communication",
+            "Non-verbal communication only",
+            "Using jargon",
+            "Sending ambiguous emails",
+            "Not communicating at all"
+          ]
+        },
+        {
+          "quest": "What is the best way to handle miscommunication in a conversation?",
+          "options": [
+            "Clarify immediately",
+            "Ignore it",
+            "Assume the other person understood",
+            "Wait for them to bring it up",
+            "Avoid further discussion"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Emotional Intelligence",
+      "questionSets": [
+        {
+          "quest": "What is the first step in developing emotional intelligence?",
+          "options": [
+            "Self-awareness",
+            "Avoiding emotions",
+            "Criticizing others",
+            "Ignoring feedback",
+            "Suppressing emotions"
+          ]
+        },
+        {
+          "quest": "Which of the following demonstrates high emotional intelligence?",
+          "options": [
+            "Empathy towards others",
+            "Ignoring others' feelings",
+            "Being dismissive",
+            "Always reacting impulsively",
+            "Not recognizing emotions"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Decision-Making & Problem-Solving",
+      "questionSets": [
+        {
+          "quest": "What is the first step in effective problem-solving?",
+          "options": [
+            "Identifying the problem",
+            "Jumping to conclusions",
+            "Blaming others",
+            "Ignoring the problem",
+            "Waiting for someone else to solve it"
+          ]
+        },
+        {
+          "quest": "Which of the following is essential for making a well-informed decision?",
+          "options": [
+            "Gathering relevant information",
+            "Guessing the outcome",
+            "Acting on impulse",
+            "Ignoring data",
+            "Delegating the decision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Delegation",
+      "questionSets": [
+        {
+          "quest": "What is the key to successful delegation?",
+          "options": [
+            "Clear communication of expectations",
+            "Micromanaging the tasks",
+            "Avoiding follow-ups",
+            "Doing everything yourself",
+            "Assigning tasks randomly"
+          ]
+        },
+        {
+          "quest": "When delegating a task, which of these is most important?",
+          "options": [
+            "Choosing the right person for the task",
+            "Ignoring the team's skills",
+            "Not providing any guidance",
+            "Expecting immediate results",
+            "Not setting deadlines"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stress Management",
+      "questionSets": [
+        {
+          "quest": "Which of the following is the best way to manage stress?",
+          "options": [
+            "Practicing mindfulness",
+            "Ignoring the stress",
+            "Overworking",
+            "Procrastinating",
+            "Avoiding relaxation"
+          ]
+        },
+        {
+          "quest": "What is a healthy approach to handling stress in the workplace?",
+          "options": [
+            "Taking regular breaks",
+            "Bottling up emotions",
+            "Blaming others",
+            "Avoiding all tasks",
+            "Skipping meals"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Leadership",
+      "questionSets": [
+        {
+          "quest": "What is the most important quality of a good leader?",
+          "options": [
+            "Inspiring others",
+            "Being authoritative",
+            "Micromanaging",
+            "Ignoring feedback",
+            "Avoiding responsibility"
+          ]
+        },
+        {
+          "quest": "Which leadership style is most effective in a collaborative environment?",
+          "options": [
+            "Transformational leadership",
+            "Autocratic leadership",
+            "Laissez-faire leadership",
+            "Transactional leadership",
+            "Dictatorial leadership"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Team Building",
+      "questionSets": [
+        {
+          "quest": "Which of these activities is most beneficial for team building?",
+          "options": [
+            "Collaborative problem-solving exercises",
+            "Solo projects",
+            "Competition between team members",
+            "Working in silos",
+            "Avoiding group interactions"
+          ]
+        },
+        {
+          "quest": "What is the best way to improve team cohesion?",
+          "options": [
+            "Fostering open communication",
+            "Encouraging competition",
+            "Assigning tasks without consultation",
+            "Ignoring team input",
+            "Discouraging collaboration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conflict Management",
+      "questionSets": [
+        {
+          "quest": "What is the first step in resolving conflict in a team?",
+          "options": [
+            "Identifying the source of the conflict",
+            "Avoiding the conflict",
+            "Blaming one party",
+            "Ignoring the issue",
+            "Letting the conflict escalate"
+          ]
+        },
+        {
+          "quest": "Which of the following is the best approach to conflict resolution?",
+          "options": [
+            "Active listening",
+            "Interrupting frequently",
+            "Making assumptions",
+            "Avoiding communication",
+            "Ignoring the problem"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Negotiation",
+      "questionSets": [
+        {
+          "quest": "What is the key to successful negotiation?",
+          "options": [
+            "Finding a win-win solution",
+            "Being rigid in your demands",
+            "Avoiding compromise",
+            "Ignoring the other party's interests",
+            "Making threats"
+          ]
+        },
+        {
+          "quest": "Which of these negotiation strategies is most effective?",
+          "options": [
+            "Collaborative problem-solving",
+            "Aggressive bargaining",
+            "Making demands without listening",
+            "Using ultimatums",
+            "Ignoring the other party's concerns"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coaching & Mentorship",
+      "questionSets": [
+        {
+          "quest": "What is the most important quality in a mentor?",
+          "options": [
+            "Providing guidance and support",
+            "Controlling every decision",
+            "Offering criticism without feedback",
+            "Avoiding interaction",
+            "Dictating actions"
+          ]
+        },
+        {
+          "quest": "What is the best approach to coaching an underperforming team member?",
+          "options": [
+            "Providing constructive feedback",
+            "Criticizing without offering solutions",
+            "Ignoring the issue",
+            "Punishing the team member",
+            "Setting unrealistic expectations"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Innovation & Creativity",
+      "questionSets": [
+        {
+          "quest": "What is the key to fostering innovation in a team?",
+          "options": [
+            "Encouraging experimentation",
+            "Sticking to traditional methods",
+            "Discouraging new ideas",
+            "Focusing on routine tasks",
+            "Avoiding risk"
+          ]
+        },
+        {
+          "quest": "Which of the following best promotes creativity in the workplace?",
+          "options": [
+            "Giving employees autonomy",
+            "Micromanaging every task",
+            "Enforcing strict rules",
+            "Discouraging brainstorming",
+            "Avoiding collaboration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Client Relationship Management",
+      "questionSets": [
+        {
+          "quest": "What is the most effective way to build strong client relationships?",
+          "options": [
+            "Consistent communication and trust",
+            "Focusing only on sales",
+            "Ignoring client feedback",
+            "Being unresponsive",
+            "Not following up with clients"
+          ]
+        },
+        {
+          "quest": "How can a business best maintain long-term client relationships?",
+          "options": [
+            "Providing personalized service",
+            "Being indifferent",
+            "Offering generic solutions",
+            "Avoiding regular communication",
+            "Ignoring client needs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Networking",
+      "questionSets": [
+        {
+          "quest": "What is the most important factor for successful professional networking?",
+          "options": [
+            "Building genuine relationships",
+            "Asking for favors immediately",
+            "Focusing only on self-interest",
+            "Being disinterested",
+            "Avoiding follow-up"
+          ]
+        },
+        {
+          "quest": "How can you improve your networking skills?",
+          "options": [
+            "Attending industry events",
+            "Staying isolated",
+            "Avoiding conversations",
+            "Focusing only on social media",
+            "Ignoring potential connections"
+          ]
+        }
+      ]
+    }
+  ]
+}
