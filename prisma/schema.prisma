@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,13 +10,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Note {
+model QuestionBank {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  content   String?
-  userId    String
+  topic     String
+  subtopics Subtopic[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("notes")
+  @@map("question_banks")
+}
+
+model Subtopic {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  questionSet QuestionSet[]
+  questionBankId String      @db.ObjectId
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id])
+
+  @@map("subtopics")
+}
+
+model QuestionSet {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  quest       String
+  options     String[]
+  subtopicId  String   @db.ObjectId
+  subtopic    Subtopic @relation(fields: [subtopicId], references: [id])
+
+  @@map("question_sets")
 }
