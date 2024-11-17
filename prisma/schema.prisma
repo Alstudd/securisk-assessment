@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -18,16 +15,31 @@ model QuestionBank {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  quizzes   Quiz[]
 
   @@map("question_banks")
 }
 
+model Quiz {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String
+  accessEmails   String[]       @default([])
+  questionBankId String         @db.ObjectId
+  questionBank   QuestionBank   @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  questions      QuizQuestion[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@map("quizzes")
+}
+
 model Subtopic {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
   name           String
   questionSets   QuestionSet[]
-  questionBankId String        @db.ObjectId
-  questionBank   QuestionBank  @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  questionBankId String         @db.ObjectId
+  questionBank   QuestionBank   @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  QuizQuestion   QuizQuestion[]
 
   @@map("subtopics")
 }
@@ -40,4 +52,16 @@ model QuestionSet {
   subtopic   Subtopic @relation(fields: [subtopicId], references: [id], onDelete: Cascade)
 
   @@map("question_sets")
+}
+
+model QuizQuestion {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  quizId     String   @db.ObjectId
+  quiz       Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  quest      String
+  options    String[]
+  subtopic   Subtopic @relation(fields: [subtopicId], references: [id], onDelete: Cascade)
+  subtopicId String   @db.ObjectId
+
+  @@map("quiz_questions")
 }

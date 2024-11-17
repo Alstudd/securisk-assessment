@@ -17,7 +17,7 @@ export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
 
-  const [showAddEditNoteDialog, setShowAddEditNoteDialog] = useState(false);
+  const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] = useState(false);
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditNoteDialog(true)}>
+            <Button onClick={() => setShowAddEditQuestionBankDialog(true)}>
               <Plus size={20} className="mr-2" />
               Add QB
             </Button>
@@ -48,8 +48,8 @@ export default function NavBar() {
         </div>
       </div>
       <AddEditQuestionBankDialog
-        open={showAddEditNoteDialog}
-        setOpen={setShowAddEditNoteDialog}
+        open={showAddEditQuestionBankDialog}
+        setOpen={setShowAddEditQuestionBankDialog}
       />
     </>
   );

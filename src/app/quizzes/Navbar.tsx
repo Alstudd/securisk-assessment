@@ -1,7 +1,7 @@
 "use client";
 
 import logo from "@/assets/logo.png";
-import AddEditQuestionBankDialog from "@/components/AddEditQuestionBankDialog";
+import AddEditQuizDialog from "@/components/AddEditQuizDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
@@ -17,7 +17,7 @@ export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
 
-  const [showAddEditNoteDialog, setShowAddEditNoteDialog] = useState(false);
+  const [showAddEditQuizDialog, setShowAddEditQuizDialog] = useState(false);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditNoteDialog(true)}>
+            <Button onClick={() => setShowAddEditQuizDialog(true)}>
               <Plus size={20} className="mr-2" />
               Add Quiz
             </Button>
@@ -53,9 +53,9 @@ export default function NavBar() {
           </div>
         </div>
       </div>
-      <AddEditQuestionBankDialog
-        open={showAddEditNoteDialog}
-        setOpen={setShowAddEditNoteDialog}
+      <AddEditQuizDialog
+        open={showAddEditQuizDialog}
+        setOpen={setShowAddEditQuizDialog}
       />
     </>
   );

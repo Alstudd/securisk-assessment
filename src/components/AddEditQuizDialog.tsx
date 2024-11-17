@@ -25,18 +25,27 @@ import { useRouter } from "next/navigation";
 import { QuestionBank, Subtopic } from "@prisma/client";
 import { useState } from "react";
 import * as XLSX from "xlsx";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
-interface AddEditQuestionBankDialogProps {
+interface AddEditQuizDialogProps {
   open: boolean;
   setOpen: (open: boolean) => void;
   questionBankToEdit?: QuestionBank & { subtopics: Subtopic[] };
 }
 
-export default function AddEditQuestionBankDialog({
+export default function AddEditQuizDialog({
   open,
   setOpen,
   questionBankToEdit,
-}: AddEditQuestionBankDialogProps) {
+}: AddEditQuizDialogProps) {
   const [deleteInProgress, setDeleteInProgress] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -189,7 +198,7 @@ export default function AddEditQuestionBankDialog({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {questionBankToEdit ? "Edit Question Bank" : "Add Question Bank"}
+            {questionBankToEdit ? "Edit Quiz" : "Add Quiz"}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -199,9 +208,23 @@ export default function AddEditQuestionBankDialog({
               name="topic"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Question Bank Topic</FormLabel>
+                  <FormLabel>Quiz Topic</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter topic" {...field} />
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a QB Topic" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>QB Topics</SelectLabel>
+                          <SelectItem value="apple">Apple</SelectItem>
+                          <SelectItem value="banana">Banana</SelectItem>
+                          <SelectItem value="blueberry">Blueberry</SelectItem>
+                          <SelectItem value="grapes">Grapes</SelectItem>
+                          <SelectItem value="pineapple">Pineapple</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
