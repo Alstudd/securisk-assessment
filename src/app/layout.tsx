@@ -7,8 +7,8 @@ import { ThemeProvider } from "./ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kavach Chatbot",
-  description: "Kavach Chatbot - Custom AI Chatbot",
+  title: "Transformatrix Quiz",
+  description: "Transformatrix Quiz",
 };
 
 export default function RootLayout({

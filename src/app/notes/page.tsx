@@ -5,7 +5,7 @@ import prisma from "@/lib/db/prisma";
 import Note from "@/components/Note";
 
 export const metadata: Metadata = {
-  title: "Kavach ChatBot - Disasters",
+  title: "Transformatrix Quiz - Question Banks",
 };
 
 type Props = {};
@@ -21,7 +21,7 @@ const Notes = async (props: Props) => {
       ))}
       {allNotes.length === 0 && (
         <div className="col-span-full text-center">
-          {'No disasters found. Click on the "Add Disaster" button to add a disaster.'}
+          {'No question banks found. Click on the "Add Question Bank" button to add a question bank.'}
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import logo from "@/assets/kavach.png";
+import logo from "@/assets/logo.png";
 import AIChatButton from "@/components/AIChatButton";
 import AddEditNoteDialog from "@/components/AddEditNoteDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
@@ -23,8 +23,8 @@ export default function NavBar() {
       <div className="p-4 shadow">
         <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
           <Link href="/notes" className="flex items-center gap-3">
-            <Image src={logo} alt="logo" width={30} height={30} />
-            <span className="font-bold">Kavach Chatbot</span>
+            <Image className="rounded-md" src={logo} alt="logo" width={55} height={55} />
+            <span className="font-bold">Transformatrix Quiz</span>
           </Link>
           <div className="flex items-center gap-2">
             <UserButton
@@ -35,10 +35,10 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            {/* <Button onClick={() => setShowAddEditNoteDialog(true)}>
+            <Button onClick={() => setShowAddEditNoteDialog(true)}>
               <Plus size={20} className="mr-2" />
-              Add Disaster
-            </Button> */}
+              Add Question Bank
+            </Button>
             <AIChatButton />
           </div>
         </div>
