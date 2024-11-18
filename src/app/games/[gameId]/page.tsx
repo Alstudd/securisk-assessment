@@ -5,10 +5,10 @@ import Link from "next/link";
 
 import { redirect } from "next/navigation";
 import React from "react";
-import ResultsCard from "@/components/statistics/ResultsCard";
-import QuizNameCard from "@/components/statistics/QuizNameCard";
-import TimeTakenCard from "@/components/statistics/TimeTakenCard";
-import QuestionsList from "@/components/statistics/QuestionsList";
+import ResultsCard from "@/components/games/ResultsCard";
+import QuizNameCard from "@/components/games/QuizNameCard";
+import TimeTakenCard from "@/components/games/TimeTakenCard";
+import QuestionsList from "@/components/games/QuestionsList";
 import { auth } from "@clerk/nextjs";
 
 type Props = {
@@ -47,8 +47,8 @@ const Statistics = async ({ params: { gameId } }: Props) => {
           <h2 className="text-3xl font-bold tracking-tight">Summary</h2>
           <div className="flex items-center space-x-2">
             <Link href="/games" className={buttonVariants()}>
-              <LucideLayoutDashboard className="mr-2" />
-              Go to Games
+              <LucideLayoutDashboard className="sm:mr-2 mr-0" />
+              <span className="sm:block hidden">Your Games</span>
             </Link>
           </div>
         </div>

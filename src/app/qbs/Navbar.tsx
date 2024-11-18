@@ -12,19 +12,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import DropdownNav from "@/components/DropdownNav";
 
 export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
 
-  const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] = useState(false);
+  const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] =
+    useState(false);
 
   return (
     <>
       <div className="p-4 shadow">
         <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <Link href="/qbs" className="flex items-center gap-3">
-            <Image className="rounded-md" src={logo} alt="logo" width={55} height={55} />
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              className="rounded-md"
+              src={logo}
+              alt="logo"
+              width={55}
+              height={55}
+            />
             <span className="font-bold">Transformatrix Quiz</span>
           </Link>
           <div className="flex items-center gap-2">
@@ -40,10 +48,7 @@ export default function NavBar() {
               <Plus size={20} className="mr-2" />
               Add QB
             </Button>
-            <Button onClick={() => router.push("/quizzes")}>
-              <Brain size={20} className="mr-2" />
-              Quizzes
-            </Button>
+            <DropdownNav />
           </div>
         </div>
       </div>

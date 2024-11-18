@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import DropdownNav from "@/components/DropdownNav";
 
 export default function NavBar() {
   const { theme } = useTheme();
@@ -23,7 +24,7 @@ export default function NavBar() {
     <>
       <div className="p-4 shadow">
         <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <Link href="/qbs" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               className="rounded-md"
               src={logo}
@@ -42,14 +43,7 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditQuizDialog(true)}>
-              <Plus size={20} className="mr-2" />
-              Add Quiz
-            </Button>
-            <Button onClick={() => router.push("/qbs")}>
-              <Book size={20} className="mr-2" />
-              QBs
-            </Button>
+            <DropdownNav />
           </div>
         </div>
       </div>

@@ -110,7 +110,7 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
           {formatTimeDelta(differenceInSeconds(now, timeStarted))}
         </div>
         <Link
-          href={`/statistics/${gameId}`}
+          href={`/games/${gameId}`}
           className={cn(buttonVariants({ size: "lg" }), "mt-2 text-center w-fit")}
         >
           View Statistics

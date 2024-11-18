@@ -1,12 +1,12 @@
 "use client";
 
 import logo from "@/assets/logo.png";
-import AddEditQuizDialog from "@/components/AddEditQuizDialog";
+import AddEditQuestionBankDialog from "@/components/AddEditQuestionBankDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Book, Brain, Plus } from "lucide-react";
+import { Brain, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,8 @@ export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
 
-  const [showAddEditQuizDialog, setShowAddEditQuizDialog] = useState(false);
+  const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] =
+    useState(false);
 
   return (
     <>
@@ -39,21 +40,17 @@ export default function NavBar() {
               afterSignOutUrl="/"
               appearance={{
                 baseTheme: theme === "dark" ? dark : undefined,
-                elements: { avatarBox: { width: "2.4rem", height: "2.4rem" } },
+                elements: { avatarBox: { width: "2.5rem", height: "2.5rem" } },
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditQuizDialog(true)}>
-              <Plus size={20} className="mr-2" />
-              Add Quiz
-            </Button>
             <DropdownNav />
           </div>
         </div>
       </div>
-      <AddEditQuizDialog
-        open={showAddEditQuizDialog}
-        setOpen={setShowAddEditQuizDialog}
+      <AddEditQuestionBankDialog
+        open={showAddEditQuestionBankDialog}
+        setOpen={setShowAddEditQuestionBankDialog}
       />
     </>
   );
