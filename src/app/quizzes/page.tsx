@@ -2,9 +2,10 @@ import React from "react";
 import type { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import prisma from "@/lib/db/prisma";
-import QuestionBank from "@/components/QuestionBank";
+import Quiz from "@/components/Quiz";
 import {
-  QuestionBank as QuestionBankModel,
+  Quiz as QuizModel,
+  QuizQuestion,
   Subtopic as SubtopicModel,
 } from "@prisma/client";
 
@@ -12,27 +13,56 @@ export const metadata: Metadata = {
   title: "Transformatrix Quiz - Quizzes",
 };
 
-const QuestionBanks = async () => {
+const Quizzes = async () => {
   const { userId } = auth();
   if (!userId) throw Error("userId undefined");
-  const allQuestionBanks: (QuestionBankModel & {
-    subtopics: SubtopicModel[];
-  })[] = await prisma.questionBank.findMany({
+  const allQuizzes: (QuizModel & {
+    questionBank: {
+      topic: string;
+      subtopics: SubtopicModel[];
+    };
+    questions: (QuizQuestion & {
+      subtopic: {
+        id: string;
+        name: string;
+        questionBankId: string;
+      };
+    })[];
+  })[] = await prisma.quiz.findMany({
     where: { userId },
-    include: { subtopics: true },
+    include: {
+      questionBank: {
+        select: {
+          topic: true,
+          subtopics: {
+            select: {
+              id: true,
+              name: true,
+              questionBankId: true,
+            },
+          },
+        },
+      },
+      questions: {
+        include: {
+          subtopic: true,
+        },
+      },
+    },
   });
+
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {allQuestionBanks.map((item) => (
-        <QuestionBank questionBank={item} key={item.id} />
+      {allQuizzes.map((item) => (
+        <Quiz quiz={item} key={item.id} />
       ))}
-      {allQuestionBanks.length === 0 && (
+      {allQuizzes.length === 0 && (
         <div className="col-span-full text-center">
-          {'No quizzes found. Click on the "Add Quiz" button to add a quiz.'}
+          {"No quizzes found. Click on the 'Add Quiz' button to add a quiz."}
         </div>
       )}
     </div>
   );
 };
 
-export default QuestionBanks;
+export default Quizzes;

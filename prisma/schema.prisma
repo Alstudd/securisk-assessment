@@ -23,7 +23,9 @@ model QuestionBank {
 model Quiz {
   id             String         @id @default(auto()) @map("_id") @db.ObjectId
   userId         String
+  name           String
   accessEmails   String[]       @default([])
+  questionCount  Int
   questionBankId String         @db.ObjectId
   questionBank   QuestionBank   @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
   questions      QuizQuestion[]

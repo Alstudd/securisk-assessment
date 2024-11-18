@@ -19,7 +19,8 @@ export async function POST(req: Request) {
       );
     }
 
-    const { questionBankId, accessEmails, subtopics } = parseResult.data;
+    const { name, questionBankId, accessEmails, questionCount, subtopics } =
+      parseResult.data;
     const { userId } = auth();
 
     if (!userId) {
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
     }
 
     const questions = [];
-    for (const { id, questionCount } of subtopics) {
+    for (const { id } of subtopics) {
       const subtopic = questionBank.subtopics.find((st) => st.id === id);
 
       if (!subtopic) {
@@ -68,10 +69,12 @@ export async function POST(req: Request) {
 
     const quiz = await prisma.quiz.create({
       data: {
+        name,
         userId,
+        questionCount,
         questionBankId,
         accessEmails,
-        questions: { create: questions },
+        questions: { create: questions.reverse() },
       },
       include: { questions: true },
     });
@@ -97,7 +100,8 @@ export async function PUT(req: Request) {
       );
     }
 
-    const { id, accessEmails, subtopics } = parseResult.data;
+    const { id, questionBankId, name, accessEmails, subtopics, questionCount } =
+      parseResult.data;
     const { userId } = auth();
 
     if (!userId) {
@@ -106,7 +110,10 @@ export async function PUT(req: Request) {
       });
     }
 
-    const quiz = await prisma.quiz.findUnique({ where: { id } });
+    const quiz = await prisma.quiz.findUnique({
+      where: { id },
+      include: { questions: true },
+    });
 
     if (!quiz) {
       return new Response(JSON.stringify({ error: "Quiz not found" }), {
@@ -120,24 +127,59 @@ export async function PUT(req: Request) {
       });
     }
 
-    const subtopicUpdateData = subtopics
-      ? {
-          subtopics: {
-            update: subtopics.map((subtopic) => ({
-              where: { id: subtopic.id },
-              data: {
-                questionCount: subtopic.questionCount,
-              },
-            })),
-          },
-        }
-      : {};
+    const currentSubtopics = quiz.questions.map((q) => q.subtopicId);
+
+    const removedSubtopicIds = currentSubtopics.filter(
+      (id) => !subtopics.some((subtopic) => subtopic.id === id),
+    );
+
+    if (removedSubtopicIds.length > 0) {
+      await prisma.quizQuestion.deleteMany({
+        where: {
+          subtopicId: { in: removedSubtopicIds },
+          quizId: quiz.id,
+        },
+      });
+    }
+
+    const subtopicUpdateData = subtopics.map(async (subtopic) => {
+      const selectedSubtopic = await prisma.subtopic.findUnique({
+        where: { id: subtopic.id },
+        include: { questionSets: true },
+      });
+
+      if (!selectedSubtopic) {
+        throw new Error(`Subtopic ${subtopic.id} not found`);
+      }
+
+      const shuffledQuestions = shuffle([...selectedSubtopic.questionSets]);
+
+      const selectedQuestions = shuffledQuestions.slice(0, questionCount);
+
+      const quizQuestions = selectedQuestions.map((qs) => ({
+        quest: qs.quest,
+        options: qs.options,
+        subtopicId: subtopic.id,
+      }));
+
+      return quizQuestions;
+    });
+
+    const allQuizQuestions = await Promise.all(subtopicUpdateData).then((res) =>
+      res.flat(),
+    );
 
     const updatedQuiz = await prisma.quiz.update({
       where: { id },
       data: {
+        name,
         accessEmails,
-        ...subtopicUpdateData,
+        questionCount,
+        questions: {
+          // delete all and recreate
+          deleteMany: {},
+          create: allQuizQuestions,
+        },
       },
     });
 

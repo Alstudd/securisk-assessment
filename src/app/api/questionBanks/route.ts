@@ -7,6 +7,29 @@ import {
 } from "@/lib/validation/questionBank";
 import { auth } from "@clerk/nextjs";
 
+export async function GET(req: Request) {
+  try {
+    const { userId } = auth();
+    if (!userId) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+      });
+    }
+
+    const questionBanks = await prisma.questionBank.findMany({
+      where: { userId },
+      include: { subtopics: { include: { questionSets: true } } },
+    });
+
+    return new Response(JSON.stringify({ questionBanks }), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+    });
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
