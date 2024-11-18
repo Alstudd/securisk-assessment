@@ -79,7 +79,7 @@ export async function POST(req: Request) {
       include: { questions: true },
     });
 
-    return new Response(JSON.stringify({ quiz }), { status: 201 });
+    return new Response(JSON.stringify({ newQuiz: quiz }), { status: 201 });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: "Internal server error" }), {
@@ -181,9 +181,10 @@ export async function PUT(req: Request) {
           create: allQuizQuestions,
         },
       },
+      include: { questions: true },
     });
 
-    return new Response(JSON.stringify({ updatedQuiz }), { status: 200 });
+    return new Response(JSON.stringify({ newQuiz: updatedQuiz }), { status: 200 });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: "Internal server error" }), {

@@ -6,21 +6,21 @@
         {
           "quest": "What is the first step in managing organizational change?",
           "options": [
-            "Assessing the need for change",
-            "Implementing the change",
-            "Communicating with stakeholders",
-            "Monitoring progress",
-            "Ignoring resistance"
+            { "name": "Assessing the need for change", "score": 5 },
+            { "name": "Implementing the change", "score": 4 },
+            { "name": "Communicating with stakeholders", "score": 3 },
+            { "name": "Monitoring progress", "score": 2 },
+            { "name": "Ignoring resistance", "score": 1 }
           ]
         },
         {
           "quest": "Which of the following is most important when implementing change in a team?",
           "options": [
-            "Effective communication",
-            "Strict supervision",
-            "Disregarding employee concerns",
-            "Focusing solely on deadlines",
-            "Not informing the team"
+            { "name": "Effective communication", "score": 5 },
+            { "name": "Strict supervision", "score": 4 },
+            { "name": "Disregarding employee concerns", "score": 3 },
+            { "name": "Focusing solely on deadlines", "score": 2 },
+            { "name": "Not informing the team", "score": 1 }
           ]
         }
       ]
@@ -31,21 +31,21 @@
         {
           "quest": "What is the most effective method for prioritizing tasks?",
           "options": [
-            "Using the Eisenhower Matrix",
-            "Completing tasks at random",
-            "Starting with the easiest tasks",
-            "Postponing complex tasks",
-            "Ignoring deadlines"
+            { "name": "Using the Eisenhower Matrix", "score": 5 },
+            { "name": "Completing tasks at random", "score": 4 },
+            { "name": "Starting with the easiest tasks", "score": 3 },
+            { "name": "Postponing complex tasks", "score": 2 },
+            { "name": "Ignoring deadlines", "score": 1 }
           ]
         },
         {
           "quest": "Which of these is a time management technique that helps minimize distractions?",
           "options": [
-            "Time blocking",
-            "Procrastination",
-            "Working without breaks",
-            "Ignoring notifications",
-            "Waiting until the last minute"
+            { "name": "Time blocking", "score": 5 },
+            { "name": "Procrastination", "score": 4 },
+            { "name": "Working without breaks", "score": 3 },
+            { "name": "Ignoring notifications", "score": 2 },
+            { "name": "Waiting until the last minute", "score": 1 }
           ]
         }
       ]
@@ -56,21 +56,21 @@
         {
           "quest": "Which is the most effective form of communication in a team setting?",
           "options": [
-            "Clear and concise communication",
-            "Non-verbal communication only",
-            "Using jargon",
-            "Sending ambiguous emails",
-            "Not communicating at all"
+            { "name": "Clear and concise communication", "score": 5 },
+            { "name": "Non-verbal communication only", "score": 4 },
+            { "name": "Using jargon", "score": 3 },
+            { "name": "Sending ambiguous emails", "score": 2 },
+            { "name": "Not communicating at all", "score": 1 }
           ]
         },
         {
           "quest": "What is the best way to handle miscommunication in a conversation?",
           "options": [
-            "Clarify immediately",
-            "Ignore it",
-            "Assume the other person understood",
-            "Wait for them to bring it up",
-            "Avoid further discussion"
+            { "name": "Clarify immediately", "score": 5 },
+            { "name": "Ignore it", "score": 4 },
+            { "name": "Assume the other person understood", "score": 3 },
+            { "name": "Wait for them to bring it up", "score": 2 },
+            { "name": "Avoid further discussion", "score": 1 }
           ]
         }
       ]
@@ -81,21 +81,21 @@
         {
           "quest": "What is the first step in developing emotional intelligence?",
           "options": [
-            "Self-awareness",
-            "Avoiding emotions",
-            "Criticizing others",
-            "Ignoring feedback",
-            "Suppressing emotions"
+            { "name": "Self-awareness", "score": 5 },
+            { "name": "Avoiding emotions", "score": 4 },
+            { "name": "Criticizing others", "score": 3 },
+            { "name": "Ignoring feedback", "score": 2 },
+            { "name": "Suppressing emotions", "score": 1 }
           ]
         },
         {
           "quest": "Which of the following demonstrates high emotional intelligence?",
           "options": [
-            "Empathy towards others",
-            "Ignoring others' feelings",
-            "Being dismissive",
-            "Always reacting impulsively",
-            "Not recognizing emotions"
+            { "name": "Empathy towards others", "score": 5 },
+            { "name": "Ignoring others' feelings", "score": 4 },
+            { "name": "Being dismissive", "score": 3 },
+            { "name": "Always reacting impulsively", "score": 2 },
+            { "name": "Not recognizing emotions", "score": 1 }
           ]
         }
       ]
@@ -106,21 +106,21 @@
         {
           "quest": "What is the first step in effective problem-solving?",
           "options": [
-            "Identifying the problem",
-            "Jumping to conclusions",
-            "Blaming others",
-            "Ignoring the problem",
-            "Waiting for someone else to solve it"
+            { "name": "Identifying the problem", "score": 5 },
+            { "name": "Jumping to conclusions", "score": 4 },
+            { "name": "Blaming others", "score": 3 },
+            { "name": "Ignoring the problem", "score": 2 },
+            { "name": "Waiting for someone else to solve it", "score": 1 }
           ]
         },
         {
           "quest": "Which of the following is essential for making a well-informed decision?",
           "options": [
-            "Gathering relevant information",
-            "Guessing the outcome",
-            "Acting on impulse",
-            "Ignoring data",
-            "Delegating the decision"
+            { "name": "Gathering relevant information", "score": 5 },
+            { "name": "Guessing the outcome", "score": 4 },
+            { "name": "Acting on impulse", "score": 3 },
+            { "name": "Ignoring data", "score": 2 },
+            { "name": "Delegating the decision", "score": 1 }
           ]
         }
       ]
@@ -131,21 +131,21 @@
         {
           "quest": "What is the key to successful delegation?",
           "options": [
-            "Clear communication of expectations",
-            "Micromanaging the tasks",
-            "Avoiding follow-ups",
-            "Doing everything yourself",
-            "Assigning tasks randomly"
+            { "name": "Clear communication of expectations", "score": 5 },
+            { "name": "Micromanaging the tasks", "score": 4 },
+            { "name": "Avoiding follow-ups", "score": 3 },
+            { "name": "Doing everything yourself", "score": 2 },
+            { "name": "Assigning tasks randomly", "score": 1 }
           ]
         },
         {
           "quest": "When delegating a task, which of these is most important?",
           "options": [
-            "Choosing the right person for the task",
-            "Ignoring the team's skills",
-            "Not providing any guidance",
-            "Expecting immediate results",
-            "Not setting deadlines"
+            { "name": "Choosing the right person for the task", "score": 5 },
+            { "name": "Ignoring the team's skills", "score": 4 },
+            { "name": "Not providing any guidance", "score": 3 },
+            { "name": "Expecting immediate results", "score": 2 },
+            { "name": "Not setting deadlines", "score": 1 }
           ]
         }
       ]
@@ -156,21 +156,21 @@
         {
           "quest": "Which of the following is the best way to manage stress?",
           "options": [
-            "Practicing mindfulness",
-            "Ignoring the stress",
-            "Overworking",
-            "Procrastinating",
-            "Avoiding relaxation"
+            { "name": "Practicing mindfulness", "score": 5 },
+            { "name": "Ignoring the stress", "score": 1 },
+            { "name": "Overworking", "score": 2 },
+            { "name": "Procrastinating", "score": 3 },
+            { "name": "Avoiding relaxation", "score": 4 }
           ]
         },
         {
           "quest": "What is a healthy approach to handling stress in the workplace?",
           "options": [
-            "Taking regular breaks",
-            "Bottling up emotions",
-            "Blaming others",
-            "Avoiding all tasks",
-            "Skipping meals"
+            { "name": "Taking regular breaks", "score": 5 },
+            { "name": "Bottling up emotions", "score": 2 },
+            { "name": "Blaming others", "score": 1 },
+            { "name": "Avoiding all tasks", "score": 3 },
+            { "name": "Skipping meals", "score": 4 }
           ]
         }
       ]
@@ -181,21 +181,21 @@
         {
           "quest": "What is the most important quality of a good leader?",
           "options": [
-            "Inspiring others",
-            "Being authoritative",
-            "Micromanaging",
-            "Ignoring feedback",
-            "Avoiding responsibility"
+            { "name": "Inspiring others", "score": 5 },
+            { "name": "Being authoritative", "score": 3 },
+            { "name": "Micromanaging", "score": 2 },
+            { "name": "Ignoring feedback", "score": 1 },
+            { "name": "Avoiding responsibility", "score": 4 }
           ]
         },
         {
           "quest": "Which leadership style is most effective in a collaborative environment?",
           "options": [
-            "Transformational leadership",
-            "Autocratic leadership",
-            "Laissez-faire leadership",
-            "Transactional leadership",
-            "Dictatorial leadership"
+            { "name": "Transformational leadership", "score": 5 },
+            { "name": "Autocratic leadership", "score": 2 },
+            { "name": "Laissez-faire leadership", "score": 3 },
+            { "name": "Transactional leadership", "score": 4 },
+            { "name": "Dictatorial leadership", "score": 1 }
           ]
         }
       ]
@@ -206,21 +206,21 @@
         {
           "quest": "Which of these activities is most beneficial for team building?",
           "options": [
-            "Collaborative problem-solving exercises",
-            "Solo projects",
-            "Competition between team members",
-            "Working in silos",
-            "Avoiding group interactions"
+            { "name": "Collaborative problem-solving exercises", "score": 5 },
+            { "name": "Solo projects", "score": 2 },
+            { "name": "Competition between team members", "score": 3 },
+            { "name": "Working in silos", "score": 1 },
+            { "name": "Avoiding group interactions", "score": 4 }
           ]
         },
         {
           "quest": "What is the best way to improve team cohesion?",
           "options": [
-            "Fostering open communication",
-            "Encouraging competition",
-            "Assigning tasks without consultation",
-            "Ignoring team input",
-            "Discouraging collaboration"
+            { "name": "Fostering open communication", "score": 5 },
+            { "name": "Encouraging competition", "score": 3 },
+            { "name": "Assigning tasks without consultation", "score": 2 },
+            { "name": "Ignoring team input", "score": 1 },
+            { "name": "Discouraging collaboration", "score": 4 }
           ]
         }
       ]
@@ -231,21 +231,21 @@
         {
           "quest": "What is the first step in resolving conflict in a team?",
           "options": [
-            "Identifying the source of the conflict",
-            "Avoiding the conflict",
-            "Blaming one party",
-            "Ignoring the issue",
-            "Letting the conflict escalate"
+            { "name": "Identifying the source of the conflict", "score": 5 },
+            { "name": "Avoiding the conflict", "score": 3 },
+            { "name": "Blaming one party", "score": 2 },
+            { "name": "Ignoring the issue", "score": 1 },
+            { "name": "Letting the conflict escalate", "score": 4 }
           ]
         },
         {
           "quest": "Which of the following is the best approach to conflict resolution?",
           "options": [
-            "Active listening",
-            "Interrupting frequently",
-            "Making assumptions",
-            "Avoiding communication",
-            "Ignoring the problem"
+            { "name": "Active listening", "score": 5 },
+            { "name": "Interrupting frequently", "score": 1 },
+            { "name": "Making assumptions", "score": 3 },
+            { "name": "Avoiding communication", "score": 2 },
+            { "name": "Ignoring the problem", "score": 4 }
           ]
         }
       ]
@@ -256,21 +256,21 @@
         {
           "quest": "What is the key to successful negotiation?",
           "options": [
-            "Finding a win-win solution",
-            "Being rigid in your demands",
-            "Avoiding compromise",
-            "Ignoring the other party's interests",
-            "Making threats"
+            { "name": "Finding a win-win solution", "score": 5 },
+            { "name": "Being rigid in your demands", "score": 2 },
+            { "name": "Avoiding compromise", "score": 3 },
+            { "name": "Ignoring the other party's interests", "score": 1 },
+            { "name": "Making threats", "score": 4 }
           ]
         },
         {
           "quest": "Which of these negotiation strategies is most effective?",
           "options": [
-            "Collaborative problem-solving",
-            "Aggressive bargaining",
-            "Making demands without listening",
-            "Using ultimatums",
-            "Ignoring the other party's concerns"
+            { "name": "Collaborative problem-solving", "score": 5 },
+            { "name": "Aggressive bargaining", "score": 2 },
+            { "name": "Making demands without listening", "score": 1 },
+            { "name": "Using ultimatums", "score": 3 },
+            { "name": "Ignoring the other party's concerns", "score": 4 }
           ]
         }
       ]
@@ -281,21 +281,21 @@
         {
           "quest": "What is the most important quality in a mentor?",
           "options": [
-            "Providing guidance and support",
-            "Controlling every decision",
-            "Offering criticism without feedback",
-            "Avoiding interaction",
-            "Dictating actions"
+            { "name": "Providing guidance and support", "score": 5 },
+            { "name": "Controlling every decision", "score": 3 },
+            { "name": "Offering criticism without feedback", "score": 4 },
+            { "name": "Avoiding interaction", "score": 1 },
+            { "name": "Dictating actions", "score": 2 }
           ]
         },
         {
           "quest": "What is the best approach to coaching an underperforming team member?",
           "options": [
-            "Providing constructive feedback",
-            "Criticizing without offering solutions",
-            "Ignoring the issue",
-            "Punishing the team member",
-            "Setting unrealistic expectations"
+            { "name": "Providing constructive feedback", "score": 5 },
+            { "name": "Criticizing without offering solutions", "score": 3 },
+            { "name": "Ignoring the issue", "score": 1 },
+            { "name": "Punishing the team member", "score": 4 },
+            { "name": "Setting unrealistic expectations", "score": 2 }
           ]
         }
       ]
@@ -306,21 +306,21 @@
         {
           "quest": "What is the key to fostering innovation in a team?",
           "options": [
-            "Encouraging experimentation",
-            "Sticking to traditional methods",
-            "Discouraging new ideas",
-            "Focusing on routine tasks",
-            "Avoiding risk"
+            { "name": "Encouraging experimentation", "score": 5 },
+            { "name": "Sticking to traditional methods", "score": 2 },
+            { "name": "Discouraging new ideas", "score": 3 },
+            { "name": "Focusing on routine tasks", "score": 1 },
+            { "name": "Avoiding risk", "score": 4 }
           ]
         },
         {
           "quest": "Which of the following best promotes creativity in the workplace?",
           "options": [
-            "Giving employees autonomy",
-            "Micromanaging every task",
-            "Enforcing strict rules",
-            "Discouraging brainstorming",
-            "Avoiding collaboration"
+            { "name": "Giving employees autonomy", "score": 5 },
+            { "name": "Micromanaging every task", "score": 1 },
+            { "name": "Enforcing strict rules", "score": 3 },
+            { "name": "Discouraging brainstorming", "score": 2 },
+            { "name": "Avoiding collaboration", "score": 4 }
           ]
         }
       ]
@@ -331,21 +331,21 @@
         {
           "quest": "What is the most effective way to build strong client relationships?",
           "options": [
-            "Consistent communication and trust",
-            "Focusing only on sales",
-            "Ignoring client feedback",
-            "Being unresponsive",
-            "Not following up with clients"
+            { "name": "Consistent communication and trust", "score": 5 },
+            { "name": "Focusing only on sales", "score": 3 },
+            { "name": "Ignoring client feedback", "score": 2 },
+            { "name": "Being unresponsive", "score": 1 },
+            { "name": "Not following up with clients", "score": 4 }
           ]
         },
         {
           "quest": "How can a business best maintain long-term client relationships?",
           "options": [
-            "Providing personalized service",
-            "Being indifferent",
-            "Offering generic solutions",
-            "Avoiding regular communication",
-            "Ignoring client needs"
+            { "name": "Providing personalized service", "score": 5 },
+            { "name": "Being indifferent", "score": 3 },
+            { "name": "Offering generic solutions", "score": 2 },
+            { "name": "Avoiding regular communication", "score": 4 },
+            { "name": "Ignoring client needs", "score": 1 }
           ]
         }
       ]
@@ -356,21 +356,21 @@
         {
           "quest": "What is the most important factor for successful professional networking?",
           "options": [
-            "Building genuine relationships",
-            "Asking for favors immediately",
-            "Focusing only on self-interest",
-            "Being disinterested",
-            "Avoiding follow-up"
+            { "name": "Building genuine relationships", "score": 5 },
+            { "name": "Asking for favors immediately", "score": 4 },
+            { "name": "Focusing only on self-interest", "score": 3 },
+            { "name": "Being disinterested", "score": 2 },
+            { "name": "Avoiding follow-up", "score": 1 }
           ]
         },
         {
           "quest": "How can you improve your networking skills?",
           "options": [
-            "Attending industry events",
-            "Staying isolated",
-            "Avoiding conversations",
-            "Focusing only on social media",
-            "Ignoring potential connections"
+            { "name": "Attending industry events", "score": 5 },
+            { "name": "Staying isolated", "score": 4 },
+            { "name": "Avoiding conversations", "score": 3 },
+            { "name": "Focusing only on social media", "score": 2 },
+            { "name": "Ignoring potential connections", "score": 1 }
           ]
         }
       ]

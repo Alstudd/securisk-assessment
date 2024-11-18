@@ -26,7 +26,15 @@ export const createQuizSchema = z.object({
                 .min(1, { message: "Question text is required" }),
               options: z
                 .array(
-                  z.string().min(1, { message: "Option text is required" }),
+                  z.object({
+                    name: z
+                      .string()
+                      .min(1, { message: "Option name is required" }),
+                    score: z
+                      .number()
+                      .int()
+                      .min(1, { message: "Score must be a positive integer" }),
+                  }),
                 )
                 .min(2, { message: "At least two options are required" }),
             }),

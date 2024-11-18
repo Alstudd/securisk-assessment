@@ -23,7 +23,7 @@ export default function NavBar() {
     <>
       <div className="p-4 shadow">
         <div className="m-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <Link href="qbs" className="flex items-center gap-3">
+          <Link href="/qbs" className="flex items-center gap-3">
             <Image className="rounded-md" src={logo} alt="logo" width={55} height={55} />
             <span className="font-bold">Transformatrix Quiz</span>
           </Link>

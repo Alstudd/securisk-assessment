@@ -1,10 +1,18 @@
 import { z } from "zod";
 
+export const optionSchema = z.object({
+  name: z.string().min(1, { message: "Option name is required" }),
+  score: z
+    .number()
+    .int()
+    .min(1, { message: "Score must be a positive integer" }),
+});
+
 export const questionSetSchema = z.object({
   quest: z.string().min(1, { message: "Question is required" }),
   options: z
-    .array(z.string())
-    .min(1, { message: "At least one option is required" }),
+    .array(optionSchema)
+    .min(2, { message: "At least two options are required" }),
 });
 
 export const subtopicSchema = z.object({

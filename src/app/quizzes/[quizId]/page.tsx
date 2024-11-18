@@ -2,6 +2,8 @@ import React from "react";
 import type { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import prisma from "@/lib/db/prisma";
+import MCQ from "@/components/MCQ";
+import StartQuiz from "@/components/StartQuiz";
 
 export const metadata: Metadata = {
   title: "Transformatrix Quiz - Quizzes",
@@ -17,7 +19,7 @@ const Quizzes = async ({ params: { quizId } }: Props) => {
   const { userId } = auth();
   if (!userId) throw new Error("userId undefined");
 
-  const quiz = await prisma.quiz.findUnique({
+  const quiz: any = await prisma.quiz.findUnique({
     where: {
       id: quizId,
     },
@@ -41,17 +43,7 @@ const Quizzes = async ({ params: { quizId } }: Props) => {
   console.log(quizQuestions);
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {/* {quizQuestions.length > 0 ? (
-        quizQuestions.map((question) => (
-          <Quiz quiz={question} key={question.id} />
-        ))
-      ) : (
-        <div className="col-span-full text-center">
-          {"No questions found for this quiz."}
-        </div>
-      )} */}
-    </div>
+    <StartQuiz quiz={quiz} questions={quizQuestions} quizId={quizId} />
   );
 };
 

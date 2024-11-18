@@ -30,6 +30,7 @@ import {
 } from "./ui/select";
 import { Plus, X } from "lucide-react";
 import { Button } from "./ui/button";
+import axios from "axios";
 
 interface SubtopicWithSelected extends Subtopic {
   selected?: boolean;
@@ -157,12 +158,33 @@ export default function AddEditQuizDialog({
     }
   };
 
-  console.log(accessEmails);
-  console.log(newEmails);
-
   const handleRemoveEmail = (email: string) => {
     setAccessEmails((prev) => prev.filter((e) => e !== email));
     setNewEmails((prev) => prev.filter((e) => e !== email));
+  };
+
+  const sendMail = async ({
+    emails,
+    quizName,
+    quizId,
+    totalQuestionCount
+  }: {
+    emails: string[];
+    quizName: string;
+    quizId: string;
+    totalQuestionCount: number;
+  }) => {
+    try {
+      await axios.post("/api/sendQuizMail", {
+        emails,
+        quizName,
+        quizId,
+        totalQuestionCount,
+      });
+      console.log("Mail sent successfully");
+    } catch (error) {
+      console.error("Failed to send mail", error);
+    }
   };
 
   const onSubmit = async (input: any) => {
@@ -207,6 +229,14 @@ export default function AddEditQuizDialog({
       if (!response.ok)
         throw new Error(`Request failed with status: ${response.status}`);
 
+      const { newQuiz } = await response.json();
+      console.log(newQuiz);
+      await sendMail({
+        emails: quizToEdit ? newEmails : accessEmails,
+        quizName: newQuiz.name,
+        quizId: newQuiz.id,
+        totalQuestionCount: newQuiz.questions.length,
+      });
       form.reset();
       setAccessEmails([]);
       setOpen(false);

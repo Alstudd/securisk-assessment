@@ -71,12 +71,27 @@ export default function AddEditQuestionBankDialog({
           const question = {
             quest: row.Question || "Untitled Question",
             options: [
-              row.Option1,
-              row.Option2,
-              row.Option3,
-              row.Option4,
-              row.Option5,
-            ].filter(Boolean),
+              {
+                name: row.Option1,
+                score: 5,
+              },
+              {
+                name: row.Option2,
+                score: 4,
+              },
+              {
+                name: row.Option3,
+                score: 3,
+              },
+              {
+                name: row.Option4,
+                score: 2,
+              },
+              {
+                name: row.Option5,
+                score: 1,
+              },
+            ].filter((o: any) => o.name),
           };
 
           if (!question.options.length) return acc;
@@ -141,8 +156,9 @@ export default function AddEditQuestionBankDialog({
 
       form.reset();
       setUploadedFile(null);
-      router.refresh();
       setOpen(false);
+      router.refresh();
+      if (questionBankToEdit) window.location.reload();
     } catch (error) {
       console.error(error);
       alert("Something went wrong. Please try again.");
