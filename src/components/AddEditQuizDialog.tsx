@@ -275,6 +275,9 @@ export default function AddEditQuizDialog({
 
       form.reset();
       setAccessEmails([]);
+      setNewEmails([]);
+      setQuestionBankId(null);
+      setSubtopics([]);
       setOpen(false);
       router.refresh();
       if (quizToEdit) window.location.reload();

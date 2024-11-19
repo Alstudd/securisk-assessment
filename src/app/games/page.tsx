@@ -17,7 +17,9 @@ const Quizzes = async () => {
   // const allGames: GameModel[] = await prisma.game.findMany({
   //   where: { userId },
   // });
-  const allGames: GameModel[] = await prisma.game.findMany();
+  const allGames: GameModel[] = await prisma.game.findMany({
+    orderBy: { updatedAt: "desc" },
+  });
   const userGames: GameModel[] = [];
   for (const game of allGames) {
     const quiz = await prisma.quiz.findUnique({
@@ -44,7 +46,9 @@ const Quizzes = async () => {
         </>
       )}
       <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {userGames.map((item) => <Game game={item} key={item.id} />).reverse()}
+        {userGames.map((item) => (
+          <Game game={item} key={item.id} />
+        ))}
         {userGames.length === 0 && (
           <div className="col-span-full text-center">
             {"No games found. Play a game of quiz."}

@@ -49,6 +49,7 @@ const Quizzes = async () => {
         },
       },
     },
+    orderBy: { updatedAt: "desc" },
   });
 
   return (
@@ -64,7 +65,7 @@ const Quizzes = async () => {
         </>
       )}
       <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {allQuizzes.map((item) => <Quiz quiz={item} key={item.id} />).reverse()}
+        {allQuizzes.map((item) => <Quiz quiz={item} key={item.id} />)}
         {allQuizzes.length === 0 && (
           <div className="col-span-full text-center">
             {"No quizzes found. Click on the 'Add Quiz' button to add a quiz."}

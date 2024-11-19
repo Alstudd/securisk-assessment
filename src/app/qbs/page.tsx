@@ -20,6 +20,7 @@ const QuestionBanks = async () => {
   })[] = await prisma.questionBank.findMany({
     where: { userId },
     include: { subtopics: true },
+    orderBy: { updatedAt: "desc" },
   });
   return (
     <div className="flex flex-col gap-2">
@@ -34,9 +35,9 @@ const QuestionBanks = async () => {
         </>
       )}
       <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {allQuestionBanks
-          .map((item) => <QuestionBank questionBank={item} key={item.id} />)
-          .reverse()}
+        {allQuestionBanks.map((item) => (
+          <QuestionBank questionBank={item} key={item.id} />
+        ))}
         {allQuestionBanks.length === 0 && (
           <div className="col-span-full text-center">
             {
