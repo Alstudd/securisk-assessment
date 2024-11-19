@@ -167,7 +167,7 @@ export default function AddEditQuizDialog({
     emails,
     quizName,
     quizId,
-    totalQuestionCount
+    totalQuestionCount,
   }: {
     emails: string[];
     quizName: string;
@@ -175,15 +175,33 @@ export default function AddEditQuizDialog({
     totalQuestionCount: number;
   }) => {
     try {
-      await axios.post("/api/sendQuizMail", {
-        emails,
-        quizName,
-        quizId,
-        totalQuestionCount,
+      const response = await fetch("/api/sendQuizMail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          emails,
+          quizName,
+          quizId,
+          totalQuestionCount,
+        }),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          `Failed to send mail. Status: ${response.status}. Message: ${errorData.message}`,
+        );
+      }
+
       console.log("Mail sent successfully");
-    } catch (error) {
-      console.error("Failed to send mail", error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Failed to send mail:", error.message);
+      } else {
+        console.error("Unexpected error occurred:", error);
+      }
     }
   };
 
@@ -225,9 +243,15 @@ export default function AddEditQuizDialog({
           : payload,
       );
 
-      const response = await fetch(url, { method, body });
-      if (!response.ok)
-        throw new Error(`Request failed with status: ${response.status}`);
+      const response = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body,
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Failed to save quiz: ${errorData.message}`);
+      }
 
       const { newQuiz } = await response.json();
       console.log(newQuiz);
@@ -237,14 +261,20 @@ export default function AddEditQuizDialog({
         quizId: newQuiz.id,
         totalQuestionCount: newQuiz.questions.length,
       });
+
       form.reset();
       setAccessEmails([]);
       setOpen(false);
       router.refresh();
       if (quizToEdit) window.location.reload();
-    } catch (error) {
-      console.error(error);
-      alert("Error saving quiz. Please try again.");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error:", error.message);
+        alert(`Error: ${error.message}`);
+      } else {
+        console.error("Unexpected error:", error);
+        alert("Unexpected error occurred. Please try again.");
+      }
     }
   };
 
