@@ -33,11 +33,11 @@ const Quizzes = async () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex-1">
-        <h1 className="text-2xl font-semibold">
-          Games {userGames.length > 0 && `(${userGames.length})`}
-        </h1>
-      </div>
+      {userGames.length > 0 && (
+        <div className="flex-1">
+          <h1 className="text-2xl font-semibold">Games ({userGames.length})</h1>
+        </div>
+      )}
       <hr className="border-gray-300" />
       <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {userGames.map((item) => <Game game={item} key={item.id} />).reverse()}
