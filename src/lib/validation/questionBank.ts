@@ -9,6 +9,7 @@ export const optionSchema = z.object({
 });
 
 export const questionSetSchema = z.object({
+  scenario: z.string().min(1, { message: "Scenario is required" }),
   quest: z.string().min(1, { message: "Question is required" }),
   options: z
     .array(optionSchema)

@@ -59,7 +59,8 @@ export async function POST(req: Request) {
           create: subtopics.map(({ name, questionSets }) => ({
             name,
             questionSets: {
-              create: questionSets.map(({ quest, options }) => ({
+              create: questionSets.map(({ scenario, quest, options }) => ({
+                scenario: scenario,
                 quest,
                 options,
               })),
@@ -124,7 +125,8 @@ export async function PUT(req: Request) {
               create: subtopics.map(({ name, questionSets }) => ({
                 name,
                 questionSets: {
-                  create: questionSets.map(({ quest, options }) => ({
+                  create: questionSets.map(({ scenario, quest, options }) => ({
+                    scenario: scenario,
                     quest,
                     options,
                   })),

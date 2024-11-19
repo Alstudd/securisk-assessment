@@ -69,6 +69,7 @@ export default function AddEditQuestionBankDialog({
         return rows.reduce((acc: any, row: any) => {
           const subtopicName = row.Subtopic || "Untitled Subtopic";
           const question = {
+            scenario: row.Scenario || "Untitled Scenario",
             quest: row.Question || "Untitled Question",
             options: [
               {

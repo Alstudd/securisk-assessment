@@ -60,6 +60,7 @@ export async function POST(req: Request) {
 
       questions.push(
         ...selectedQuestions.map((qs) => ({
+          scenario: qs.scenario,
           quest: qs.quest,
           options: qs.options,
           subtopic: { connect: { id: subtopic.id } },
@@ -157,6 +158,7 @@ export async function PUT(req: Request) {
       const selectedQuestions = shuffledQuestions.slice(0, questionCount);
 
       const quizQuestions = selectedQuestions.map((qs) => ({
+        scenario: qs.scenario,
         quest: qs.quest,
         options: qs.options,
         subtopicId: subtopic.id,
@@ -184,7 +186,9 @@ export async function PUT(req: Request) {
       include: { questions: true },
     });
 
-    return new Response(JSON.stringify({ newQuiz: updatedQuiz }), { status: 200 });
+    return new Response(JSON.stringify({ newQuiz: updatedQuiz }), {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: "Internal server error" }), {

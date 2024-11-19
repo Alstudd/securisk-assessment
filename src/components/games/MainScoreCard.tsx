@@ -11,7 +11,7 @@ const MainScoreCard = ({ mainScore, totalQuestions }: any) => {
       </CardHeader>
       <CardContent>
         <div className="text-sm font-medium">
-          {mainScore} / {totalQuestions * 5}
+          {mainScore} / {totalQuestions * 5} <span className="font-bold">({((mainScore * 100) / (totalQuestions * 5)).toFixed(2)}%)</span>
         </div>
       </CardContent>
     </Card>

@@ -21,6 +21,9 @@ export const createQuizSchema = z.object({
         questions: z
           .array(
             z.object({
+              scenario: z
+                .string()
+                .min(1, { message: "Scenario text is required" }),
               quest: z
                 .string()
                 .min(1, { message: "Question text is required" }),

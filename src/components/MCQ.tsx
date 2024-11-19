@@ -59,10 +59,10 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
     const selectedOption = options[selectedChoice];
     const optionScore = selectedOption?.score ?? 0;
 
-    console.log("Current Question Index:", currentQuestionIndex);
-    console.log("Selected Option:", selectedOption);
-    console.log("Option Score:", optionScore);
-    console.log("Score Before Update:", score);
+    // console.log("Current Question Index:", currentQuestionIndex);
+    // console.log("Selected Option:", selectedOption);
+    // console.log("Option Score:", optionScore);
+    // console.log("Score Before Update:", score);
 
     const answer = {
       gameId,
@@ -79,7 +79,7 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
 
       setScore((prev) => {
         const updatedScore = prev + optionScore;
-        console.log("Score After Update:", updatedScore);
+        // console.log("Score After Update:", updatedScore);
         return updatedScore;
       });
     } catch (error) {
@@ -155,9 +155,16 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
       <div className="flex flex-row justify-between">
         <div className="flex flex-col">
           <p>
-            <span className="text-slate-400">Topic</span> &nbsp;
+            <span className="text-slate-400">
+              {currentQuestion.scenario === "Untitled Scenario"
+                ? "Topic"
+                : "Scenario"}
+            </span>{" "}
+            &nbsp;
             <span className="rounded-lg bg-slate-800 px-2 py-1 text-white">
-              {quiz.name}
+              {currentQuestion.scenario === "Untitled Scenario"
+                ? quiz.name
+                : currentQuestion.scenario}
             </span>
           </p>
         </div>

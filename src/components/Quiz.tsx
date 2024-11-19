@@ -127,8 +127,12 @@ export default function Quiz({ quiz }: QuizProps) {
                   {quiz.questionBank.topic}
                 </div>
                 <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
-                  <span className="font-bold">Questions: </span>
+                  <span className="font-bold">Question Count: </span>
                   {quiz.questionCount}
+                </div>
+                <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
+                  <span className="font-bold">Total Questions: </span>
+                  {quiz.questions.length}
                 </div>
               </div>
             </div>

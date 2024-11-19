@@ -51,6 +51,7 @@ model QuestionSet {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   quest      String
   options    Json
+  scenario   String
   subtopicId String   @db.ObjectId
   subtopic   Subtopic @relation(fields: [subtopicId], references: [id], onDelete: Cascade)
 
@@ -63,6 +64,7 @@ model QuizQuestion {
   quiz       Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
   quest      String
   options    Json
+  scenario   String
   subtopic   Subtopic     @relation(fields: [subtopicId], references: [id], onDelete: Cascade)
   subtopicId String       @db.ObjectId
   GameAnswer GameAnswer[]

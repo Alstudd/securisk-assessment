@@ -12,7 +12,6 @@ export async function POST(req: Request) {
   }
 
   try {
-    // Validate if quiz exists
     const quizExists = await prisma.quiz.findUnique({
       where: { id: quizId },
     });
@@ -23,7 +22,6 @@ export async function POST(req: Request) {
       });
     }
 
-    // Check for existing game
     const existingGame = await prisma.game.findFirst({
       where: {
         userId,
@@ -41,7 +39,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create new game
     const game = await prisma.game.create({
       data: {
         userId,
