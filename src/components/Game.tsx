@@ -75,11 +75,29 @@ async function Game({ game }: GameProps) {
           <CardDescription className="flex flex-col gap-2">
             <span>
               <span className="font-bold">Start Time: </span>
-              {game.timeStarted.toLocaleString()}
+              {new Intl.DateTimeFormat("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+              }).format(new Date(game.timeStarted))}
             </span>
             <span>
               <span className="font-bold">End Time: </span>
-              {game.timeEnded?.toLocaleString()}
+              {game.timeEnded
+                ? new Intl.DateTimeFormat("en-GB", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true,
+                  }).format(new Date(game.timeEnded))
+                : "N/A"}
             </span>
           </CardDescription>
         </CardHeader>

@@ -53,7 +53,8 @@ const Statistics = async ({ params: { gameId } }: Props) => {
   }
 
   const user = await clerkClient.users.getUser(game.userId);
-  const userName = `${user.firstName || ""} ${user.lastName || ""}`.trim() || "Name not found";
+  const userName =
+    `${user.firstName || ""} ${user.lastName || ""}`.trim() || "Name not found";
 
   return (
     <>
@@ -62,8 +63,8 @@ const Statistics = async ({ params: { gameId } }: Props) => {
           <h2 className="text-3xl font-bold tracking-tight">Summary</h2>
           <div className="flex items-center space-x-2">
             <Link href="/games" className={buttonVariants()}>
-              <LucideLayoutDashboard className="sm:mr-2 mr-0" />
-              <span className="sm:block hidden">Your Games</span>
+              <LucideLayoutDashboard className="mr-0 sm:mr-2" />
+              <span className="hidden sm:block">Your Games</span>
             </Link>
           </div>
         </div>
@@ -76,14 +77,17 @@ const Statistics = async ({ params: { gameId } }: Props) => {
           />
           <QuizNameCard quizName={quiz?.name} />
           <TimeTakenCard
-            timeEnded={new Date(game.timeEnded ?? 0)}
-            timeStarted={new Date(game.timeStarted ?? 0)}
+            timeEnded={game.timeEnded ? new Date(game.timeEnded) : undefined}
+            timeStarted={new Date(game.timeStarted)}
           />
           <MainScoreCard
             mainScore={game.mainScore}
             totalQuestions={quiz?.questions.length}
           />
-          <TotalQuestionsCard totalQuestions={quiz?.questions.length} />
+          <TotalQuestionsCard
+            totalQuestions={quiz?.questions.length}
+            questionsAttempted={game.answers.length}
+          />
         </div>
         <QuestionsList questions={quiz?.questions} answers={game.answers} />
       </div>

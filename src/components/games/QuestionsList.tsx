@@ -34,10 +34,10 @@ const QuestionsList = ({ questions, answers }: any) => {
               <TableCell className="font-medium">{index + 1}</TableCell>
               <TableCell>{quest}</TableCell>
               <TableCell className="font-semibold">
-                {userAnswer.name || "No answer provided"}
+                {userAnswer?.name || "No answer provided"}
               </TableCell>
               <TableCell className="font-semibold">
-                {userAnswer.score || "No score provided"}
+                {userAnswer?.score || "No score provided"}
               </TableCell>
             </TableRow>
           );

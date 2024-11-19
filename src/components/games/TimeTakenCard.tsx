@@ -5,11 +5,12 @@ import { formatTimeDelta } from "@/lib/utils";
 import { differenceInSeconds } from "date-fns";
 
 type Props = {
-  timeEnded: Date;
+  timeEnded: Date | undefined;
   timeStarted: Date;
 };
 
 const TimeTakenCard = ({ timeEnded, timeStarted }: Props) => {
+  console.log(timeEnded, "hello");
   return (
     <Card className="md:col-span-4">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -18,7 +19,9 @@ const TimeTakenCard = ({ timeEnded, timeStarted }: Props) => {
       </CardHeader>
       <CardContent>
         <div className="text-sm font-medium">
-          {formatTimeDelta(differenceInSeconds(timeEnded, timeStarted))}
+          {timeEnded
+            ? formatTimeDelta(differenceInSeconds(timeEnded, timeStarted))
+            : "N/A"}
         </div>
       </CardContent>
     </Card>
