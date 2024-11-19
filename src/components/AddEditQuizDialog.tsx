@@ -278,7 +278,7 @@ export default function AddEditQuizDialog({
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
             <FormItem>
-              <FormLabel>Quiz Topic</FormLabel>
+              <FormLabel>Question Bank Topic</FormLabel>
               <Select
                 disabled={quizToEdit ? true : false}
                 value={questionBankId || ""}

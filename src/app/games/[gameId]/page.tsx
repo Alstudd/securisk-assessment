@@ -9,7 +9,14 @@ import ResultsCard from "@/components/games/ResultsCard";
 import QuizNameCard from "@/components/games/QuizNameCard";
 import TimeTakenCard from "@/components/games/TimeTakenCard";
 import QuestionsList from "@/components/games/QuestionsList";
+import MainScoreCard from "@/components/games/MainScoreCard";
+import TotalQuestionsCard from "@/components/games/TotalQuestionsCard";
 import { auth } from "@clerk/nextjs";
+import { createClerkClient } from "@clerk/backend";
+
+const clerkClient = createClerkClient({
+  secretKey: process.env.CLERK_SECRET_KEY,
+});
 
 type Props = {
   params: {
@@ -40,6 +47,14 @@ const Statistics = async ({ params: { gameId } }: Props) => {
     },
   });
 
+  // access protection
+  if (quiz?.userId !== userId) {
+    return redirect("/games");
+  }
+
+  const user = await clerkClient.users.getUser(game.userId);
+  const userName = `${user.firstName || ""} ${user.lastName || ""}`.trim() || "Name not found";
+
   return (
     <>
       <div className="mx-auto max-w-7xl px-8">
@@ -55,6 +70,7 @@ const Statistics = async ({ params: { gameId } }: Props) => {
 
         <div className="mt-4 grid gap-4 md:grid-cols-7">
           <ResultsCard
+            userName={userName}
             mainScore={game.mainScore}
             totalQuestions={quiz?.questions.length}
           />
@@ -63,6 +79,11 @@ const Statistics = async ({ params: { gameId } }: Props) => {
             timeEnded={new Date(game.timeEnded ?? 0)}
             timeStarted={new Date(game.timeStarted ?? 0)}
           />
+          <MainScoreCard
+            mainScore={game.mainScore}
+            totalQuestions={quiz?.questions.length}
+          />
+          <TotalQuestionsCard totalQuestions={quiz?.questions.length} />
         </div>
         <QuestionsList questions={quiz?.questions} answers={game.answers} />
       </div>

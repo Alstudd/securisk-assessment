@@ -27,7 +27,7 @@ export async function POST(request: Request) {
             <div>
               Quiz Name - ${req.quizName} <br/>
               Total Questions - ${req.totalQuestionCount} <br/>
-              Link - <a href="http://localhost:3000/quizzes/${req.quizId}" target="_blank">http://localhost:3000/quizzes/${req.quizId}</a> <br/>
+              Link - <a href="${process.env.NEXT_PUBLIC_API_URL}/quizzes/${req.quizId}" target="_blank">${process.env.NEXT_PUBLIC_API_URL}/quizzes/${req.quizId}</a> <br/>
             </div>
             </div>`,
       });

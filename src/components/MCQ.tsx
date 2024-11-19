@@ -1,6 +1,12 @@
 "use client";
 
-import { BarChart, ChevronRight, Loader2, Timer } from "lucide-react";
+import {
+  BarChart,
+  ChevronRight,
+  Loader2,
+  LucideLayoutDashboard,
+  Timer,
+} from "lucide-react";
 import { differenceInSeconds } from "date-fns";
 import {
   Card,
@@ -27,13 +33,12 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   const [timeStarted, setTimeStarted] = useState<Date>(new Date());
   const [hasEnded, setHasEnded] = useState<boolean>(false);
   const [now, setNow] = useState<Date>(new Date());
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!hasEnded) setNow(new Date());
     }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [hasEnded]);
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -44,12 +49,21 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   }, []);
 
   const handleNext = async () => {
-    if (selectedChoice === null) return; // Ensure a choice is selected before proceeding
+    if (selectedChoice === null) {
+      console.warn("No choice selected. Please select an option.");
+      return;
+    }
 
     setIsLoading(true);
 
-    // Save the answer
     const selectedOption = options[selectedChoice];
+    const optionScore = selectedOption?.score ?? 0;
+
+    console.log("Current Question Index:", currentQuestionIndex);
+    console.log("Selected Option:", selectedOption);
+    console.log("Option Score:", optionScore);
+    console.log("Score Before Update:", score);
+
     const answer = {
       gameId,
       questionId: currentQuestion.id,
@@ -63,30 +77,35 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
         body: JSON.stringify(answer),
       });
 
-      // Update score based on the selected option's score
-      setScore((prev) => prev + (selectedOption.score || 0));
+      setScore((prev) => {
+        const updatedScore = prev + optionScore;
+        console.log("Score After Update:", updatedScore);
+        return updatedScore;
+      });
     } catch (error) {
       console.error("Error saving answer:", error);
     }
 
-    // Move to the next question
     if (currentQuestionIndex + 1 < questions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedChoice(null);
     } else {
-      await endGame();
+      endGame(optionScore);
     }
 
     setIsLoading(false);
   };
 
-  const endGame = async () => {
+  const endGame = async (lastOptionScore: number) => {
+    const finalScore = score + lastOptionScore;
     const timeEnded = new Date();
     const gameData = {
       gameId,
       timeEnded,
-      mainScore: score,
+      mainScore: finalScore,
     };
+
+    console.log("Game End Data:", gameData);
 
     try {
       await fetch("/api/games/end", {
@@ -104,17 +123,28 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
 
   if (hasEnded) {
     return (
-      <div className="flex flex-col justify-center items-center">
-        <div className="mt-2 whitespace-nowrap rounded-md bg-green-500 px-4 py-2 font-semibold text-white text-center w-fit">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mt-2 w-fit whitespace-nowrap rounded-md bg-green-500 px-4 py-2 text-center font-semibold text-white">
           You Completed in{" "}
           {formatTimeDelta(differenceInSeconds(now, timeStarted))}
         </div>
-        <Link
+        {/* Because of access protection */}
+        {/* <Link
           href={`/games/${gameId}`}
           className={cn(buttonVariants({ size: "lg" }), "mt-2 text-center w-fit")}
         >
           View Statistics
           <BarChart className="ml-2 h-4 w-4" />
+        </Link> */}
+        <Link
+          href="/games"
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "mt-2 w-fit text-center",
+          )}
+        >
+          Your Games
+          <LucideLayoutDashboard className="ml-2 h-4 w-4" />
         </Link>
       </div>
     );
@@ -148,7 +178,7 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
         </CardHeader>
       </Card>
       <div className="mt-4 flex w-full flex-col items-center justify-center">
-        {options.map((option: any, index: any) => (
+        {options.map((option: any, index: number) => (
           <Button
             key={index}
             variant={selectedChoice === index ? "default" : "outline"}

@@ -13,10 +13,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import DropdownNav from "@/components/DropdownNav";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
+  const pathname = usePathname();
 
   const [showAddEditQuizDialog, setShowAddEditQuizDialog] = useState(false);
 
@@ -43,10 +45,12 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditQuizDialog(true)}>
-              <Plus size={20} className="mr-2" />
-              Add Quiz
-            </Button>
+            {pathname === "/quizzes" && (
+              <Button onClick={() => setShowAddEditQuizDialog(true)}>
+                <Plus size={20} className="mr-2" />
+                Add Quiz
+              </Button>
+            )}
             <DropdownNav />
           </div>
         </div>

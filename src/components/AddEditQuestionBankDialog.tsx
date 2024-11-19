@@ -206,6 +206,11 @@ export default function AddEditQuestionBankDialog({
         <DialogHeader>
           <DialogTitle>
             {questionBankToEdit ? "Edit Question Bank" : "Add Question Bank"}
+            {questionBankToEdit && (
+              <span className="text-sm text-gray-500 ml-2">
+                (Warning: Uploading a new file replaces data. <br/>If no quizzes use this question bank, then go ahead!)
+              </span>
+            )}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>

@@ -19,7 +19,8 @@ const QuestionsList = ({ questions, answers }: any) => {
         <TableRow>
           <TableHead className="w-[10px]">No.</TableHead>
           <TableHead>Question</TableHead>
-          <TableHead>Your Answer</TableHead>
+          <TableHead>Answer</TableHead>
+          <TableHead>Points</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -34,6 +35,9 @@ const QuestionsList = ({ questions, answers }: any) => {
               <TableCell>{quest}</TableCell>
               <TableCell className="font-semibold">
                 {userAnswer.name || "No answer provided"}
+              </TableCell>
+              <TableCell className="font-semibold">
+                {userAnswer.score || "No score provided"}
               </TableCell>
             </TableRow>
           );

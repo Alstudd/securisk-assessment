@@ -140,7 +140,7 @@ export default function Quiz({ quiz }: QuizProps) {
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           <div className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium dark:text-gray-400 text-gray-500">
+            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
               Subtopics:
             </span>
             <div className="flex flex-wrap gap-2">
@@ -165,7 +165,7 @@ export default function Quiz({ quiz }: QuizProps) {
           </div>
           {quiz.accessEmails.length > 0 && (
             <div className="flex flex-col gap-1.5">
-              <span className="text-sm font-medium dark:text-gray-400 text-gray-500">
+              <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
                 Access Emails:
               </span>
               <div className="flex flex-wrap gap-2">
