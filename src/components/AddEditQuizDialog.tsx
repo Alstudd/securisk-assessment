@@ -164,11 +164,15 @@ export default function AddEditQuizDialog({
   };
 
   const sendMail = async ({
+    subject,
+    message,
     emails,
     quizName,
     quizId,
     totalQuestionCount,
   }: {
+    subject: string;
+    message: string;
     emails: string[];
     quizName: string;
     quizId: string;
@@ -181,6 +185,8 @@ export default function AddEditQuizDialog({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          subject,
+          message,
           emails,
           quizName,
           quizId,
@@ -256,7 +262,12 @@ export default function AddEditQuizDialog({
       const { newQuiz } = await response.json();
       console.log(newQuiz);
       await sendMail({
-        emails: quizToEdit ? newEmails : accessEmails,
+        subject: quizToEdit ? "Quiz updated" : "New quiz created",
+        message: quizToEdit
+          ? "your assigned quiz has been updated"
+          : "you have been assigned a quiz",
+        // emails: quizToEdit ? newEmails : accessEmails,
+        emails: accessEmails,
         quizName: newQuiz.name,
         quizId: newQuiz.id,
         totalQuestionCount: newQuiz.questions.length,
