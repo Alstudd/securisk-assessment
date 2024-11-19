@@ -33,9 +33,7 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(body);
     const parseResult = createQuestionBankSchema.safeParse(body);
-    console.log(parseResult);
     if (!parseResult.success) {
       console.error(parseResult.error);
       return new Response(JSON.stringify({ error: "Invalid input" }), {
@@ -60,7 +58,7 @@ export async function POST(req: Request) {
             name,
             questionSets: {
               create: questionSets.map(({ scenario, quest, options }) => ({
-                scenario: scenario,
+                scenario,
                 quest,
                 options,
               })),
@@ -92,50 +90,53 @@ export async function PUT(req: Request) {
       });
     }
 
+    const { userId } = auth();
+    if (!userId) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+      });
+    }
+
     if (parseResult.success) {
       const { id, topic, subtopics } = parseResult.data;
+
       const questionBank = await prisma.questionBank.findUnique({
         where: { id },
-        include: { subtopics: { include: { questionSets: true } } },
       });
 
       if (!questionBank) {
         return new Response(
           JSON.stringify({ error: "QuestionBank not found" }),
-          {
-            status: 404,
-          },
+          { status: 404 },
         );
       }
 
-      const { userId } = auth();
-      if (!userId || userId !== questionBank.userId) {
+      if (userId !== questionBank.userId) {
         return new Response(JSON.stringify({ error: "Unauthorized" }), {
           status: 401,
         });
       }
 
-      const updatedQuestionBank = await prisma.$transaction(async (tx) => {
-        await tx.subtopic.deleteMany({ where: { questionBankId: id } });
-        return await tx.questionBank.update({
-          where: { id },
-          data: {
-            topic,
-            subtopics: {
-              create: subtopics.map(({ name, questionSets }) => ({
-                name,
-                questionSets: {
-                  create: questionSets.map(({ scenario, quest, options }) => ({
-                    scenario: scenario,
-                    quest,
-                    options,
-                  })),
-                },
-              })),
-            },
+      await prisma.subtopic.deleteMany({ where: { questionBankId: id } });
+
+      const updatedQuestionBank = await prisma.questionBank.update({
+        where: { id },
+        data: {
+          topic,
+          subtopics: {
+            create: subtopics.map(({ name, questionSets }) => ({
+              name,
+              questionSets: {
+                create: questionSets.map(({ scenario, quest, options }) => ({
+                  scenario,
+                  quest,
+                  options,
+                })),
+              },
+            })),
           },
-          include: { subtopics: { include: { questionSets: true } } },
-        });
+        },
+        include: { subtopics: { include: { questionSets: true } } },
       });
 
       return new Response(JSON.stringify({ updatedQuestionBank }), {
@@ -143,6 +144,7 @@ export async function PUT(req: Request) {
       });
     } else if (parseTopicResult.success) {
       const { id, topic } = parseTopicResult.data;
+
       const updatedQuestionBank = await prisma.questionBank.update({
         where: { id },
         data: { topic },
@@ -173,6 +175,13 @@ export async function DELETE(req: Request) {
     }
 
     const { id } = parseResult.data;
+    const { userId } = auth();
+    if (!userId) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+      });
+    }
+
     const questionBank = await prisma.questionBank.findUnique({
       where: { id },
     });
@@ -183,17 +192,16 @@ export async function DELETE(req: Request) {
       });
     }
 
-    const { userId } = auth();
-    if (!userId || userId !== questionBank.userId) {
+    if (userId !== questionBank.userId) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       });
     }
 
-    await prisma.$transaction(async (tx) => {
-      await tx.subtopic.deleteMany({ where: { questionBankId: id } });
-      await tx.questionBank.delete({ where: { id } });
-    });
+    await Promise.all([
+      prisma.subtopic.deleteMany({ where: { questionBankId: id } }),
+      prisma.questionBank.delete({ where: { id } }),
+    ]);
 
     return new Response(JSON.stringify({ message: "QuestionBank deleted" }), {
       status: 200,
