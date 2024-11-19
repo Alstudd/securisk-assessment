@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 import prisma from "@/lib/db/prisma";
-import MCQ from "@/components/MCQ";
 import StartQuiz from "@/components/StartQuiz";
 import { createClerkClient } from "@clerk/backend";
 import { redirect } from "next/navigation";
