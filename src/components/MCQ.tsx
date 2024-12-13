@@ -156,15 +156,17 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
         <div className="flex flex-col">
           <p>
             <span className="text-slate-400">
-              {currentQuestion.scenario === "Untitled Scenario"
+              Topic
+              {/* {currentQuestion.scenario === "Untitled Scenario"
                 ? "Topic"
-                : "Scenario"}
+                : "Scenario"} */}
             </span>{" "}
             &nbsp;
             <span className="rounded-lg bg-slate-800 px-2 py-1 text-white">
-              {currentQuestion.scenario === "Untitled Scenario"
+              {quiz.name}
+              {/* {currentQuestion.scenario === "Untitled Scenario"
                 ? quiz.name
-                : currentQuestion.scenario}
+                : currentQuestion.scenario} */}
             </span>
           </p>
         </div>
