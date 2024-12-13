@@ -6,7 +6,7 @@ import { Award, Trophy } from "lucide-react";
 const ResultsCard = ({ userName, mainScore, totalQuestions }: any) => {
   const score = (mainScore * 100) / (totalQuestions * 5);
   return (
-    <Card className="md:col-span-7">
+    <Card className="mt-4">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
         <CardTitle className="text-2xl font-bold">Results</CardTitle>
         <Award />

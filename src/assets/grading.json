@@ -1,0 +1,527 @@
+[
+  {
+    "SN": "1",
+    "Subtopic": "Time management",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent time management skills. The candidate demonstrates strong prioritization, planning, and proactive behaviors."
+  },
+  {
+    "SN": "2",
+    "Subtopic": "Time management",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good time management skills. The candidate shows good awareness of time management principles and mostly makes productive choices."
+  },
+  {
+    "SN": "3",
+    "Subtopic": "Time management",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate time management skills. The candidate shows basic understanding but may struggle with prioritization or proactivity."
+  },
+  {
+    "SN": "4",
+    "Subtopic": "Time management",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Below average time management skills. The candidate demonstrates some awareness but often makes ineffective choices."
+  },
+  {
+    "SN": "5",
+    "Subtopic": "Time management",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor time management skills. The candidate lacks basic time management skills and consistently makes poor choices."
+  },
+  {
+    "SN": "6",
+    "Subtopic": "Change management",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent change management skills. The candidate demonstrates adaptability, resilience, and a proactive approach to managing change."
+  },
+  {
+    "SN": "7",
+    "Subtopic": "Change management",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good change management skills. The candidate shows a willingness to adapt and support change initiatives with some positive actions."
+  },
+  {
+    "SN": "8",
+    "Subtopic": "Change management",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate change management skills. The candidate accepts change but may struggle with motivation or proactive involvement."
+  },
+  {
+    "SN": "9",
+    "Subtopic": "Change management",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Below average change management skills. The candidate shows resistance to change and lacks engagement with adapting to new situations."
+  },
+  {
+    "SN": "10",
+    "Subtopic": "Change management",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor change management skills. The candidate demonstrates strong resistance to change, with a rigid approach and lack of flexibility."
+  },
+  {
+    "SN": "11",
+    "Subtopic": "Communication skills",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent communication skills. The candidate shows clarity, empathy, adaptability, and an understanding of audience needs."
+  },
+  {
+    "SN": "12",
+    "Subtopic": "Communication skills",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good communication skills. The candidate communicates effectively in most scenarios, with room for minor improvements."
+  },
+  {
+    "SN": "13",
+    "Subtopic": "Communication skills",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate communication skills. The candidate shows basic communication skills but may struggle with clarity or empathy in some situations."
+  },
+  {
+    "SN": "14",
+    "Subtopic": "Communication skills",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Below average communication skills. The candidate demonstrates gaps in active listening, clarity, and adapting to the audience."
+  },
+  {
+    "SN": "15",
+    "Subtopic": "Communication skills",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor communication skills. The candidate shows little awareness of effective communication practices and lacks adaptability and clarity."
+  },
+  {
+    "SN": "16",
+    "Subtopic": "Emotional intelligence",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "High emotional intelligence. The candidate shows strong self-awareness, empathy, and adaptability, effectively managing emotions and relationships."
+  },
+  {
+    "SN": "17",
+    "Subtopic": "Emotional intelligence",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good emotional intelligence. The candidate demonstrates solid emotional management skills and empathy, though there may be minor areas for improvement."
+  },
+  {
+    "SN": "18",
+    "Subtopic": "Emotional intelligence",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate emotional intelligence. The candidate has some EI skills but may struggle with self-regulation, empathy, or relationship management in challenging situations."
+  },
+  {
+    "SN": "19",
+    "Subtopic": "Emotional intelligence",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low emotional intelligence. The candidate shows limited awareness of emotional impact and struggles with managing emotions and interpersonal interactions."
+  },
+  {
+    "SN": "20",
+    "Subtopic": "Emotional intelligence",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor emotional intelligence. The candidate lacks self-awareness and struggles with empathy and emotional regulation, affecting their ability to interact effectively with others."
+  },
+  {
+    "SN": "21",
+    "Subtopic": "Delegation",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent delegation skills. The candidate demonstrates trust, clear communication, accountability, and the ability to empower team members effectively."
+  },
+  {
+    "SN": "22",
+    "Subtopic": "Delegation",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good delegation skills. The candidate generally delegates well but may occasionally struggle with trust or follow-up."
+  },
+  {
+    "SN": "23",
+    "Subtopic": "Delegation",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate delegation skills. The candidate shows some understanding of delegation but may lack consistency in empowerment, feedback, or workload management."
+  },
+  {
+    "SN": "24",
+    "Subtopic": "Delegation",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Below average delegation skills. The candidate has difficulty delegating effectively and may lack trust or clarity in assigning tasks."
+  },
+  {
+    "SN": "25",
+    "Subtopic": "Delegation",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor delegation skills. The candidate demonstrates a reluctance to delegate and struggles with empowerment and accountability."
+  },
+  {
+    "SN": "26",
+    "Subtopic": "Stress management",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent stress management skills. The candidate demonstrates resilience, adaptability, and the ability to maintain focus and calmness under pressure."
+  },
+  {
+    "SN": "27",
+    "Subtopic": "Stress management",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good stress management skills. The candidate generally manages stress well but may benefit from fine-tuning their approach in high-stakes situations."
+  },
+  {
+    "SN": "28",
+    "Subtopic": "Stress management",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate stress management skills. The candidate can handle stress to some extent but may struggle to adapt quickly in intense situations."
+  },
+  {
+    "SN": "29",
+    "Subtopic": "Stress management",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low stress management skills. The candidate may find it difficult to manage stress effectively, which could impact performance and interactions."
+  },
+  {
+    "SN": "30",
+    "Subtopic": "Stress management",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Poor stress management skills. The candidate demonstrates a limited ability to handle stress and may face challenges in high-pressure environments."
+  },
+  {
+    "SN": "31",
+    "Subtopic": "Leadership",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Leadership Potential - The candidate shows a balanced, empathetic, and effective approach to leadership, demonstrating strong skills in team motivation, conflict resolution, accountability, and decision-making."
+  },
+  {
+    "SN": "32",
+    "Subtopic": "Leadership",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Leadership Potential - The candidate is generally strong in leadership but could enhance consistency in team communication, adaptability, or empowerment."
+  },
+  {
+    "SN": "33",
+    "Subtopic": "Leadership",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Leadership Potential - The candidate has some leadership traits but may need more development in decision-making, accountability, or team collaboration."
+  },
+  {
+    "SN": "34",
+    "Subtopic": "Leadership",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Leadership Potential - The candidate shows limited leadership skills, particularly in areas such as adaptability, empowerment, and conflict resolution."
+  },
+  {
+    "SN": "35",
+    "Subtopic": "Leadership",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Leadership Potential - The candidate has significant challenges in demonstrating effective leadership, with a need for improvement in multiple key areas."
+  },
+  {
+    "SN": "36",
+    "Subtopic": "Team-building",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Team-Building Skills - The candidate shows strong team-building abilities, fostering collaboration, trust, and inclusiveness. They consistently work to improve team morale and cohesiveness."
+  },
+  {
+    "SN": "37",
+    "Subtopic": "Team-building",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Team-Building Skills - The candidate demonstrates effective team-building traits, though they may benefit from additional emphasis on inclusiveness or trust-building."
+  },
+  {
+    "SN": "38",
+    "Subtopic": "Team-building",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Team-Building Skills - The candidate shows some team-building ability but may need further development in collaboration, trust, and engagement."
+  },
+  {
+    "SN": "39",
+    "Subtopic": "Team-building",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Team-Building Skills - The candidate has limited team-building skills and may struggle with fostering collaboration and inclusiveness."
+  },
+  {
+    "SN": "40",
+    "Subtopic": "Team-building",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Team-Building Skills - The candidate demonstrates minimal ability to build a cohesive, collaborative team environment."
+  },
+  {
+    "SN": "41",
+    "Subtopic": "Conflict management",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Conflict Management Skills - The candidate shows high emotional intelligence, fosters constructive conflict resolution, and demonstrates empathy and proactivity in handling disputes."
+  },
+  {
+    "SN": "42",
+    "Subtopic": "Conflict management",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Conflict Management Skills - The candidate manages conflicts effectively and maintains positive team dynamics, though they may benefit from additional focus on proactive resolution."
+  },
+  {
+    "SN": "43",
+    "Subtopic": "Conflict management",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Conflict Management Skills - The candidate shows some conflict management skills but may need further development in mediation, proactive engagement, or empathy."
+  },
+  {
+    "SN": "44",
+    "Subtopic": "Conflict management",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Conflict Management Skills - The candidate has limited conflict management abilities and may struggle with addressing issues constructively or collaboratively."
+  },
+  {
+    "SN": "45",
+    "Subtopic": "Conflict management",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Conflict Management Skills - The candidate demonstrates minimal conflict resolution skills, showing little inclination to address or resolve team disputes."
+  },
+  {
+    "SN": "46",
+    "Subtopic": "Negotiation skills",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Negotiation Skills - The candidate demonstrates strong negotiation abilities, seeking mutually beneficial solutions, balancing assertiveness with flexibility, and maintaining positive relationships."
+  },
+  {
+    "SN": "47",
+    "Subtopic": "Negotiation skills",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Negotiation Skills - The candidate shows effective negotiation skills and a focus on balanced outcomes, though they may benefit from increased adaptability or sensitivity to others’ needs."
+  },
+  {
+    "SN": "48",
+    "Subtopic": "Negotiation skills",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Negotiation Skills - The candidate has basic negotiation skills but may require development in empathy, flexibility, or creating win-win scenarios."
+  },
+  {
+    "SN": "49",
+    "Subtopic": "Negotiation skills",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Negotiation Skills - The candidate shows limited negotiation abilities and may struggle to achieve positive outcomes that satisfy all parties involved."
+  },
+  {
+    "SN": "50",
+    "Subtopic": "Negotiation skills",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Negotiation Skills - The candidate lacks basic negotiation skills, potentially leading to strained relationships and suboptimal outcomes."
+  },
+  {
+    "SN": "51",
+    "Subtopic": "Coaching and mentorship",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Coaching & Mentorship Skills - The candidate demonstrates a strong commitment to coaching and mentoring, fostering growth, and supporting others effectively."
+  },
+  {
+    "SN": "52",
+    "Subtopic": "Coaching and mentorship",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Coaching & Mentorship Skills - The candidate shows effective coaching and mentorship abilities but may benefit from deeper engagement or tailored approaches."
+  },
+  {
+    "SN": "53",
+    "Subtopic": "Coaching and mentorship",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Coaching & Mentorship Skills - The candidate has basic coaching skills but may require further development in facilitating growth and providing feedback."
+  },
+  {
+    "SN": "54",
+    "Subtopic": "Coaching and mentorship",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Coaching & Mentorship Skills - The candidate shows limited coaching and mentorship abilities, potentially struggling to support others effectively."
+  },
+  {
+    "SN": "55",
+    "Subtopic": "Coaching and mentorship",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Coaching & Mentorship Skills - The candidate demonstrates minimal understanding of coaching and mentorship, lacking the necessary skills to develop and guide others."
+  },
+  {
+    "SN": "56",
+    "Subtopic": "Innovation and creativity",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Innovation & Creativity Skills - The candidate demonstrates strong innovation and creativity, effectively fostering an environment that encourages new ideas and approaches."
+  },
+  {
+    "SN": "57",
+    "Subtopic": "Innovation and creativity",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Innovation & Creativity Skills - The candidate shows solid creativity and innovation abilities but may need to enhance their approach to encouraging others."
+  },
+  {
+    "SN": "58",
+    "Subtopic": "Innovation and creativity",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Innovation & Creativity Skills - The candidate has basic skills in innovation and creativity but may require further development to think outside the box."
+  },
+  {
+    "SN": "59",
+    "Subtopic": "Innovation and creativity",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Innovation & Creativity Skills - The candidate shows limited innovative thinking and may struggle to generate or support new ideas."
+  },
+  {
+    "SN": "60",
+    "Subtopic": "Innovation and creativity",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Innovation & Creativity Skills - The candidate lacks fundamental innovation and creativity skills, potentially hindering their ability to contribute to growth and improvement."
+  },
+  {
+    "SN": "61",
+    "Subtopic": "Client relationship",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Client Relationship Management Skills - The candidate demonstrates a strong ability to build and maintain positive client relationships, effectively addressing concerns and anticipating needs."
+  },
+  {
+    "SN": "62",
+    "Subtopic": "Client relationship",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Client Relationship Management Skills - The candidate shows solid client management abilities but may need to enhance their engagement and proactive approach."
+  },
+  {
+    "SN": "63",
+    "Subtopic": "Client relationship",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Client Relationship Management Skills - The candidate has basic skills in managing client relationships but may require further development in communication and problem-solving."
+  },
+  {
+    "SN": "64",
+    "Subtopic": "Client relationship",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Client Relationship Management Skills - The candidate shows limited ability to manage client relationships, potentially struggling to address concerns and build rapport."
+  },
+  {
+    "SN": "65",
+    "Subtopic": "Client relationship",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Client Relationship Management Skills - The candidate lacks fundamental client management skills, which may hinder their effectiveness in client-facing roles."
+  },
+  {
+    "SN": "66",
+    "Subtopic": "Networking",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Networking Skills - The candidate demonstrates a proactive and effective approach to networking, actively building and maintaining valuable relationships."
+  },
+  {
+    "SN": "67",
+    "Subtopic": "Networking",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Networking Skills - The candidate shows solid networking abilities but may need to enhance their engagement and follow-up strategies."
+  },
+  {
+    "SN": "68",
+    "Subtopic": "Networking",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Networking Skills - The candidate has basic skills in networking but may require further development in communication and relationship-building."
+  },
+  {
+    "SN": "69",
+    "Subtopic": "Networking",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Networking Skills - The candidate shows limited ability to network, potentially struggling to establish or maintain professional relationships."
+  },
+  {
+    "SN": "70",
+    "Subtopic": "Networking",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Networking Skills - The candidate lacks fundamental networking skills, which may hinder their effectiveness in professional environments."
+  },
+  {
+    "SN": "71",
+    "Subtopic": "Decision-making and problem-solving",
+    "Grading Scale": "41–50 Points",
+    "Grade": "Excellent",
+    "Grade Description": "Excellent Decision-Making & Problem-Solving Skills - The candidate demonstrates strong analytical abilities, effective problem-solving, and sound decision-making processes."
+  },
+  {
+    "SN": "72",
+    "Subtopic": "Decision-making and problem-solving",
+    "Grading Scale": "31–40 Points",
+    "Grade": "Good",
+    "Grade Description": "Good Decision-Making & Problem-Solving Skills - The candidate shows solid skills in these areas but may need to enhance their engagement and proactive approaches."
+  },
+  {
+    "SN": "73",
+    "Subtopic": "Decision-making and problem-solving",
+    "Grading Scale": "21–30 Points",
+    "Grade": "Moderate",
+    "Grade Description": "Moderate Decision-Making & Problem-Solving Skills - The candidate has basic skills in decision-making and problem-solving but may require further development and guidance."
+  },
+  {
+    "SN": "74",
+    "Subtopic": "Decision-making and problem-solving",
+    "Grading Scale": "11–20 Points",
+    "Grade": "Low",
+    "Grade Description": "Low Decision-Making & Problem-Solving Skills - The candidate shows limited ability to effectively make decisions and solve problems, indicating a need for significant improvement."
+  },
+  {
+    "SN": "75",
+    "Subtopic": "Decision-making and problem-solving",
+    "Grading Scale": "0–10 Points",
+    "Grade": "Poor",
+    "Grade Description": "Very Limited Decision-Making & Problem-Solving Skills - The candidate lacks fundamental decision-making and problem-solving skills, which may hinder their effectiveness in professional settings."
+  }
+]

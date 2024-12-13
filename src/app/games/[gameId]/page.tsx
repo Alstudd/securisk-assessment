@@ -13,6 +13,7 @@ import MainScoreCard from "@/components/games/MainScoreCard";
 import TotalQuestionsCard from "@/components/games/TotalQuestionsCard";
 import { auth } from "@clerk/nextjs";
 import { createClerkClient } from "@clerk/backend";
+import GradeList from "@/components/games/GradeList";
 
 const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY,
@@ -69,12 +70,13 @@ const Statistics = async ({ params: { gameId } }: Props) => {
           </div>
         </div>
 
+        <ResultsCard
+          userName={userName}
+          mainScore={game.mainScore}
+          totalQuestions={quiz?.questions.length}
+        />
+        <GradeList questions={quiz?.questions} answers={game.answers} />
         <div className="mt-4 grid gap-4 md:grid-cols-7">
-          <ResultsCard
-            userName={userName}
-            mainScore={game.mainScore}
-            totalQuestions={quiz?.questions.length}
-          />
           <QuizNameCard quizName={quiz?.name} />
           <TimeTakenCard
             timeEnded={game.timeEnded ? new Date(game.timeEnded) : undefined}
