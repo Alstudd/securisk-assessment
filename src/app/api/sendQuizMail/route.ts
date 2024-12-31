@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       const mail = await transporter.sendMail({
         from: '"Sarthaki HelpDesk" <happy2help@sarthaki.in>',
         to: email,
-        subject: `Securisk Quiz - ${req.subject}`,
+        subject: `Securisk Assessment - ${req.subject}`,
         html: `
           <div>
             Hello user, ${req.message} <br/>

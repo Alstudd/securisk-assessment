@@ -6,7 +6,7 @@ import Game from "@/components/Game";
 import { Game as GameModel } from "@prisma/client";
 
 export const metadata: Metadata = {
-  title: "Securisk Quiz - Games",
+  title: "Securisk Assessment - Reports",
 };
 
 const Quizzes = async () => {
@@ -39,7 +39,7 @@ const Quizzes = async () => {
         <>
           <div className="flex-1">
             <h1 className="text-2xl font-semibold">
-              Games ({userGames.length})
+              Reports ({userGames.length})
             </h1>
           </div>
           <hr className="border-gray-300" />
@@ -51,7 +51,7 @@ const Quizzes = async () => {
         ))}
         {userGames.length === 0 && (
           <div className="col-span-full text-center">
-            {"No games found. Play a game of quiz."}
+            {"No reports found. Take an assessment to generate a report."}
           </div>
         )}
       </div>

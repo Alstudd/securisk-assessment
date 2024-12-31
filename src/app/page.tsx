@@ -15,7 +15,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4">
         <Image className="rounded-md" src={logo} alt="logo" width={200} height={200} />
         <span className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Securisk Quiz
+          Securisk Assessment
         </span>
       </div>
       <p className="max-w-prose text-center">
