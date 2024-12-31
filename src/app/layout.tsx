@@ -7,8 +7,8 @@ import { ThemeProvider } from "./ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Transformatrix Quiz",
-  description: "Transformatrix Quiz",
+  title: "Securisk Quiz",
+  description: "Securisk Quiz",
 };
 
 export default function RootLayout({

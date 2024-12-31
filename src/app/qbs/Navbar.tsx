@@ -33,7 +33,7 @@ export default function NavBar() {
               width={55}
               height={55}
             />
-            <span className="font-bold">Transformatrix Quiz</span>
+            <span className="font-bold">Securisk Quiz</span>
           </Link>
           <div className="flex items-center gap-2">
             <UserButton

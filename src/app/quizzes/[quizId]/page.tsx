@@ -11,7 +11,7 @@ const clerkClient = createClerkClient({
 });
 
 export const metadata: Metadata = {
-  title: "Transformatrix Quiz - Quizzes",
+  title: "Securisk Quiz - Quizzes",
 };
 
 type Props = {

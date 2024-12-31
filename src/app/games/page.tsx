@@ -6,7 +6,7 @@ import Game from "@/components/Game";
 import { Game as GameModel } from "@prisma/client";
 
 export const metadata: Metadata = {
-  title: "Transformatrix Quiz - Games",
+  title: "Securisk Quiz - Games",
 };
 
 const Quizzes = async () => {

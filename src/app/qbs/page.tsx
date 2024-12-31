@@ -9,7 +9,7 @@ import {
 } from "@prisma/client";
 
 export const metadata: Metadata = {
-  title: "Transformatrix Quiz - Question Banks",
+  title: "Securisk Quiz - Question Banks",
 };
 
 const QuestionBanks = async () => {
