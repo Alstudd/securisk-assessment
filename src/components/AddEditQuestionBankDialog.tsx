@@ -210,7 +210,7 @@ export default function AddEditQuestionBankDialog({
             {questionBankToEdit && (
               <span className="ml-2 text-sm text-gray-500">
                 (Warning: Replacing a file or deleting this QB may cause data
-                loss in quizzes unless unused. Proceed only if no quizzes rely
+                loss in assessments unless unused. Proceed only if no assessments rely
                 on it.)
               </span>
             )}

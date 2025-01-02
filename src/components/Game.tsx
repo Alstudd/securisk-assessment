@@ -39,7 +39,7 @@ async function Game({ game }: GameProps) {
   });
 
   if (!quiz) {
-    return <div>Quiz not found</div>;
+    return <div>Assessment not found</div>;
   }
 
   const quizAttemptedByUser = await clerkClient.users.getUser(game.userId);
@@ -128,7 +128,7 @@ async function Game({ game }: GameProps) {
           </div>
           <div className="flex flex-col gap-1.5">
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              Quiz Attempted By:
+              Assessment Attempted By:
             </span>
             <div className="flex flex-wrap gap-2">
               <div className="rounded-md bg-blue-500 px-2 py-1 text-[13px] font-medium text-white">
@@ -138,7 +138,7 @@ async function Game({ game }: GameProps) {
           </div>
           <div className="flex flex-col gap-1.5">
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              Quiz Made By:
+              Assessment Made By:
             </span>
             <div className="flex flex-wrap gap-2">
               <div className="rounded-md bg-blue-500 px-2 py-1 text-[13px] font-medium text-white">
@@ -149,7 +149,7 @@ async function Game({ game }: GameProps) {
           {/* access protection */}
           {userId === quiz.userId && (
             <Link
-              href={`/games/${game.id}`}
+              href={`/reports/${game.id}`}
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "mt-2 w-full text-center",

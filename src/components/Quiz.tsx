@@ -111,7 +111,7 @@ export default function Quiz({ quiz }: QuizProps) {
         <div className="mt-auto p-4">
           <Button className="w-full" onClick={() => setShowEditDialog(true)}>
             <Edit size={20} className="mr-2" />
-            Update Quiz
+            Update Assessment
           </Button>
         </div>
       </Card> */}
@@ -186,7 +186,7 @@ export default function Quiz({ quiz }: QuizProps) {
           )}
           <Button className="mt-2" onClick={() => setShowEditDialog(true)}>
             <Edit size={20} className="mr-2" />
-            Update Quiz
+            Update Assessment
           </Button>
         </CardContent>
       </Card>

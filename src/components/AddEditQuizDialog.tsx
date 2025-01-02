@@ -256,16 +256,16 @@ export default function AddEditQuizDialog({
       });
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(`Failed to save quiz: ${errorData.message}`);
+        throw new Error(`Failed to save assessment: ${errorData.message}`);
       }
 
       const { newQuiz } = await response.json();
       console.log(newQuiz);
       await sendMail({
-        subject: quizToEdit ? "Quiz updated" : "New quiz created",
+        subject: quizToEdit ? "Assessment updated" : "New assessment created",
         message: quizToEdit
-          ? "your assigned quiz has been updated"
-          : "you have been assigned a quiz",
+          ? "your assigned assessment has been updated"
+          : "you have been assigned an assessment",
         // emails: quizToEdit ? newEmails : accessEmails,
         emails: accessEmails,
         quizName: newQuiz.name,
@@ -307,7 +307,7 @@ export default function AddEditQuizDialog({
       setOpen(false);
     } catch (error) {
       console.error(error);
-      alert("Error deleting quiz. Please try again.");
+      alert("Error deleting assessment. Please try again.");
     } finally {
       setDeleteInProgress(false);
     }
@@ -317,7 +317,7 @@ export default function AddEditQuizDialog({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-h-[500px] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{quizToEdit ? "Edit Quiz" : "Add Quiz"}</DialogTitle>
+          <DialogTitle>{quizToEdit ? "Edit Assessment" : "Add Assessment"}</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -365,7 +365,7 @@ export default function AddEditQuizDialog({
               name="quizName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quiz Name</FormLabel>
+                  <FormLabel>Assessment Name</FormLabel>
                   <FormControl>
                     <Input type="text" {...field} placeholder="Enter name" />
                   </FormControl>

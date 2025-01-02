@@ -105,7 +105,7 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
       mainScore: finalScore,
     };
 
-    console.log("Game End Data:", gameData);
+    console.log("Assessment End Data:", gameData);
 
     try {
       await fetch("/api/games/end", {
@@ -115,9 +115,9 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
       });
 
       setHasEnded(true);
-      console.log("Game ended successfully!");
+      console.log("Assessment ended successfully!");
     } catch (error) {
-      console.error("Error ending game:", error);
+      console.error("Error ending assessment:", error);
     }
   };
 
@@ -137,13 +137,13 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
           <BarChart className="ml-2 h-4 w-4" />
         </Link> */}
         <Link
-          href="/games"
+          href="/reports"
           className={cn(
             buttonVariants({ size: "lg" }),
             "mt-2 w-fit text-center",
           )}
         >
-          Your Games
+          Your Reports
           <LucideLayoutDashboard className="ml-2 h-4 w-4" />
         </Link>
       </div>

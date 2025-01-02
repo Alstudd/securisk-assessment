@@ -37,7 +37,7 @@ export default function StartQuiz({ quiz, questions, quizId }: MCQProps) {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create game");
+        throw new Error("Failed to start assessment");
       }
 
       const { game } = await response.json();
@@ -46,7 +46,7 @@ export default function StartQuiz({ quiz, questions, quizId }: MCQProps) {
       console.log(game);
       setGameStarted(true);
     } catch (error) {
-      console.error("Error creating game:", error);
+      console.error("Error starting assessment:", error);
     }
     setLoading(false);
   };
@@ -68,7 +68,7 @@ export default function StartQuiz({ quiz, questions, quizId }: MCQProps) {
           </p>
           <Button disabled={loading} onClick={createGame}>
             <Brain size={20} className="mr-2" />
-            Start Quiz
+            Start Assessment
             {loading && <Loader2 className="animate-spin ml-2" />}
           </Button>
         </main>

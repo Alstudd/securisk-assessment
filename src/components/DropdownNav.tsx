@@ -29,15 +29,15 @@ const DropdownNav = () => {
 
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link className="text-black" href="/quizzes">
-            <Brain size={20} /> Quizzes
+          <Link className="text-black" href="/assessments">
+            <Brain size={20} /> Assessments
           </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link className="text-black" href="/games">
-            <LucideLayoutDashboard size={20} /> Games
+          <Link className="text-black" href="/reports">
+            <LucideLayoutDashboard size={20} /> Reports
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
