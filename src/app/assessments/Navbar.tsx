@@ -45,10 +45,10 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            {pathname === "/quizzes" && (
+            {pathname === "/assessments" && (
               <Button onClick={() => setShowAddEditQuizDialog(true)}>
                 <Plus size={20} className="mr-2" />
-                Add Quiz
+                Add Assessment
               </Button>
             )}
             <DropdownNav />

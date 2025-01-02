@@ -50,7 +50,7 @@ const Statistics = async ({ params: { gameId } }: Props) => {
 
   // access protection
   if (quiz?.userId !== userId) {
-    return redirect("/games");
+    return redirect("/reports");
   }
 
   const user = await clerkClient.users.getUser(game.userId);
@@ -63,9 +63,9 @@ const Statistics = async ({ params: { gameId } }: Props) => {
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Summary</h2>
           <div className="flex items-center space-x-2">
-            <Link href="/games" className={buttonVariants()}>
+            <Link href="/reports" className={buttonVariants()}>
               <LucideLayoutDashboard className="mr-0 sm:mr-2" />
-              <span className="hidden sm:block">Your Games</span>
+              <span className="hidden sm:block">Your Reports</span>
             </Link>
           </div>
         </div>

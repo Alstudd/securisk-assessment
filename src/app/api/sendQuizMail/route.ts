@@ -24,9 +24,9 @@ export async function POST(request: Request) {
           <div>
             Hello user, ${req.message} <br/>
             <div>
-              Quiz Name - ${req.quizName} <br/>
+              Assessment Name - ${req.quizName} <br/>
               Total Questions - ${req.totalQuestionCount} <br/>
-              Link - <a href="${process.env.NEXT_PUBLIC_API_URL}/quizzes/${req.quizId}" target="_blank">${process.env.NEXT_PUBLIC_API_URL}/quizzes/${req.quizId}</a> <br/>
+              Link - <a href="${process.env.NEXT_PUBLIC_API_URL}/assessments/${req.quizId}" target="_blank">${process.env.NEXT_PUBLIC_API_URL}/assessments/${req.quizId}</a> <br/>
             </div>
           </div>`,
       });

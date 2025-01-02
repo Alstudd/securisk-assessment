@@ -19,7 +19,7 @@ export default function Home() {
         </span>
       </div>
       <p className="max-w-prose text-center">
-        A quiz app to test your knowledge on various topics.
+        An assessment app to test your knowledge on various topics.
       </p>
       <Button size="lg" asChild>
         <Link href="/qbs">Open</Link>

@@ -10,7 +10,7 @@ import {
 } from "@prisma/client";
 
 export const metadata: Metadata = {
-  title: "Securisk Assessment - Quizzes",
+  title: "Securisk Assessment - Assessments",
 };
 
 const Quizzes = async () => {
@@ -58,7 +58,7 @@ const Quizzes = async () => {
         <>
           <div className="flex-1">
             <h1 className="text-2xl font-semibold">
-              Quizzes ({allQuizzes.length})
+              Assessments ({allQuizzes.length})
             </h1>
           </div>
           <hr className="border-gray-300" />
@@ -68,7 +68,7 @@ const Quizzes = async () => {
         {allQuizzes.map((item) => <Quiz quiz={item} key={item.id} />)}
         {allQuizzes.length === 0 && (
           <div className="col-span-full text-center">
-            {"No quizzes found. Click on the 'Add Quiz' button to add a quiz."}
+            {"No assessments found. Click on the 'Add Assessment' button to add an assessment."}
           </div>
         )}
       </div>

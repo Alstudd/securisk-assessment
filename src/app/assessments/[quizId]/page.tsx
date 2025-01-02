@@ -11,7 +11,7 @@ const clerkClient = createClerkClient({
 });
 
 export const metadata: Metadata = {
-  title: "Securisk Assessment - Quizzes",
+  title: "Securisk Assessment - Assessments",
 };
 
 type Props = {
@@ -42,12 +42,12 @@ const Quizzes = async ({ params: { quizId } }: Props) => {
   });
 
   if (!quiz) {
-    return <div>Quiz not found</div>;
+    return <div>Assessment not found</div>;
   }
 
   // email access protection
   if (quiz.accessEmails && !quiz.accessEmails.includes(userEmail)) {
-    redirect("/quizzes");
+    redirect("/assessments");
   }
 
   const quizQuestions = quiz.questions;
