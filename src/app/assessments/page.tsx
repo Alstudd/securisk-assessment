@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const Quizzes = async () => {
-  const { userId } = auth();
+  const { userId, user } = auth();
   if (!userId) throw Error("userId undefined");
   const allQuizzes: (QuizModel & {
     questionBank: {
@@ -65,10 +65,14 @@ const Quizzes = async () => {
         </>
       )}
       <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {allQuizzes.map((item) => <Quiz quiz={item} key={item.id} />)}
+        {allQuizzes.map((item) => (
+          <Quiz quiz={item} key={item.id} />
+        ))}
         {allQuizzes.length === 0 && (
           <div className="col-span-full text-center">
-            {"No assessments found. Click on the 'Add Assessment' button to add an assessment."}
+            {user?.emailAddresses[0]?.emailAddress === "souzaagnel@gmail.com"
+              ? "No assessments found. Click on the 'Add Assessment' button to add an assessment."
+              : "No assessments found. You do not have access to create assessments."}
           </div>
         )}
       </div>

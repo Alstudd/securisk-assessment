@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Securisk Assessment - Reports",
 };
 
-const Quizzes = async () => {
+const Reports = async () => {
   const { userId } = auth();
   if (!userId) throw Error("userId undefined");
 
@@ -51,7 +51,9 @@ const Quizzes = async () => {
         ))}
         {userGames.length === 0 && (
           <div className="col-span-full text-center">
-            {"No reports found. Take an assessment to generate a report."}
+            {
+              "No reports found. Take or share an assessment to generate a report."
+            }
           </div>
         )}
       </div>
@@ -59,4 +61,4 @@ const Quizzes = async () => {
   );
 };
 
-export default Quizzes;
+export default Reports;

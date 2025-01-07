@@ -6,17 +6,15 @@ import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Book, Brain, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import DropdownNav from "@/components/DropdownNav";
 
 export default function NavBar() {
   const { theme } = useTheme();
-  const router = useRouter();
   const { user } = useUser();
 
   const [showAddEditQuizDialog, setShowAddEditQuizDialog] = useState(false);

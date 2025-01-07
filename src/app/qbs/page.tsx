@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const QuestionBanks = async () => {
-  const { userId } = auth();
+  const { userId, user } = auth();
   if (!userId) throw Error("userId undefined");
   const allQuestionBanks: (QuestionBankModel & {
     subtopics: SubtopicModel[];
@@ -40,9 +40,9 @@ const QuestionBanks = async () => {
         ))}
         {allQuestionBanks.length === 0 && (
           <div className="col-span-full text-center">
-            {
-              'No question banks found. Click on the "Add QB" button to add a question bank.'
-            }
+            {user?.emailAddresses[0]?.emailAddress === "souzaagnel@gmail.com"
+              ? "No question banks found. Click on the 'Add QB' button to add a question bank."
+              : "No question banks found. You do not have access to create question banks."}
           </div>
         )}
       </div>

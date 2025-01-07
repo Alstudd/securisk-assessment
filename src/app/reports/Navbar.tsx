@@ -1,25 +1,16 @@
 "use client";
 
 import logo from "@/assets/logo.png";
-import AddEditQuestionBankDialog from "@/components/AddEditQuestionBankDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Brain, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import DropdownNav from "@/components/DropdownNav";
 
 export default function NavBar() {
   const { theme } = useTheme();
-  const router = useRouter();
-
-  const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] =
-    useState(false);
 
   return (
     <>
@@ -48,10 +39,6 @@ export default function NavBar() {
           </div>
         </div>
       </div>
-      <AddEditQuestionBankDialog
-        open={showAddEditQuestionBankDialog}
-        setOpen={setShowAddEditQuestionBankDialog}
-      />
     </>
   );
 }
