@@ -4,7 +4,7 @@ import logo from "@/assets/logo.png";
 import AddEditQuizDialog from "@/components/AddEditQuizDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Book, Brain, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -13,12 +13,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import DropdownNav from "@/components/DropdownNav";
-import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
-  const pathname = usePathname();
+  const { user } = useUser();
 
   const [showAddEditQuizDialog, setShowAddEditQuizDialog] = useState(false);
 
@@ -45,7 +44,8 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            {pathname === "/assessments" && (
+            {user?.emailAddresses[0]?.emailAddress ===
+              "souzaagnel@gmail.com" && (
               <Button onClick={() => setShowAddEditQuizDialog(true)}>
                 <Plus size={20} className="mr-2" />
                 Add Assessment

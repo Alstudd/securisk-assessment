@@ -4,7 +4,7 @@ import logo from "@/assets/logo.png";
 import AddEditQuestionBankDialog from "@/components/AddEditQuestionBankDialog";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Brain, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -17,6 +17,7 @@ import DropdownNav from "@/components/DropdownNav";
 export default function NavBar() {
   const { theme } = useTheme();
   const router = useRouter();
+  const { user } = useUser();
 
   const [showAddEditQuestionBankDialog, setShowAddEditQuestionBankDialog] =
     useState(false);
@@ -44,10 +45,13 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            <Button onClick={() => setShowAddEditQuestionBankDialog(true)}>
-              <Plus size={20} className="mr-2" />
-              Add QB
-            </Button>
+            {user?.emailAddresses[0]?.emailAddress ===
+              "souzaagnel@gmail.com" && (
+              <Button onClick={() => setShowAddEditQuestionBankDialog(true)}>
+                <Plus size={20} className="mr-2" />
+                Add QB
+              </Button>
+            )}
             <DropdownNav />
           </div>
         </div>
