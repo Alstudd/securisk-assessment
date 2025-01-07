@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils";
 import prisma from "@/lib/db/prisma";
 import { auth } from "@clerk/nextjs";
 import { createClerkClient } from "@clerk/backend";
+import LoadingButton from "./ui/loading-button";
+import { GameCard } from "./GameCard";
 
 const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY,
@@ -51,116 +53,7 @@ async function Game({ game }: GameProps) {
 
   return (
     <>
-      <Card className="transition-shadow hover:shadow-lg">
-        <CardHeader>
-          <CardTitle>
-            <div className="flex flex-col gap-3">
-              {quiz.name}
-              <div className="flex flex-col gap-2">
-                <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
-                  <span className="font-bold">QB: </span>
-                  {quiz.questionBank.topic}
-                </div>
-                <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
-                  <span className="font-bold">Question Count: </span>
-                  {quiz.questionCount}
-                </div>
-                <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
-                  <span className="font-bold">Total Questions: </span>
-                  {quiz.questions.length}
-                </div>
-              </div>
-            </div>
-          </CardTitle>
-          <CardDescription className="flex flex-col gap-2">
-            <span>
-              <span className="font-bold">Start Time: </span>
-              {new Intl.DateTimeFormat("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-                hour12: true,
-              }).format(new Date(game.timeStarted))}
-            </span>
-            <span>
-              <span className="font-bold">End Time: </span>
-              {game.timeEnded
-                ? new Intl.DateTimeFormat("en-GB", {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: true,
-                  }).format(new Date(game.timeEnded))
-                : "N/A"}
-            </span>
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              Subtopics:
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {quiz.questions
-                .map((question) => question.subtopic)
-                .filter(
-                  (subtopic, index, self) =>
-                    index ===
-                    self.findIndex(
-                      (t) => t.id === subtopic.id && t.name === subtopic.name,
-                    ),
-                )
-                .map((subtopic) => (
-                  <div
-                    key={subtopic.id}
-                    className="rounded-md bg-blue-500 p-2 text-[13px] font-medium text-white"
-                  >
-                    {subtopic.name}
-                  </div>
-                ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              Assessment Attempted By:
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <div className="rounded-md bg-blue-500 px-2 py-1 text-[13px] font-medium text-white">
-                {quizAttemptedByUserEmail} {userId === game.userId && "(You)"}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              Assessment Made By:
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <div className="rounded-md bg-blue-500 px-2 py-1 text-[13px] font-medium text-white">
-                {quizMadeByUserEmail} {userId === quiz.userId && "(You)"}
-              </div>
-            </div>
-          </div>
-          {/* access protection */}
-          {userId === quiz.userId && (
-            <Link
-              href={`/reports/${game.id}`}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "mt-2 w-full text-center",
-              )}
-            >
-              View Statistics
-              <BarChart className="ml-2 h-4 w-4" />
-            </Link>
-          )}
-        </CardContent>
-      </Card>
+      <GameCard userId={userId} quiz={quiz} game={game} quizAttemptedByUserEmail={quizAttemptedByUserEmail} quizMadeByUserEmail={quizMadeByUserEmail} />
     </>
   );
 }

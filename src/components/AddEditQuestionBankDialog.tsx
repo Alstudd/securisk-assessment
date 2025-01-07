@@ -209,9 +209,9 @@ export default function AddEditQuestionBankDialog({
             {questionBankToEdit ? "Edit Question Bank" : "Add Question Bank"}
             {questionBankToEdit && (
               <span className="ml-2 text-sm text-gray-500">
-                (Warning: Replacing a file or deleting this QB may cause data
-                loss in assessments unless unused. Proceed only if no assessments rely
-                on it.)
+                (Warning: Replacing a file of this QB may cause data loss in
+                assessments unless unused. Deleting a QB will delete all
+                associated assessments. Please proceed with caution.)
               </span>
             )}
           </DialogTitle>

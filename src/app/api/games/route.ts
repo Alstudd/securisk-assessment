@@ -61,3 +61,50 @@ export async function POST(req: Request) {
     });
   }
 }
+
+export async function DELETE(req: Request) {
+  const { id }: { id: string } = await req.json();
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Response(JSON.stringify({ message: "Unauthorized" }), {
+      status: 401,
+    });
+  }
+
+  try {
+    const game = await prisma.game.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!game) {
+      return new Response(JSON.stringify({ message: "Game not found" }), {
+        status: 404,
+      });
+    }
+
+    await Promise.all([
+      prisma.gameAnswer.deleteMany({
+        where: {
+          gameId: id,
+        },
+      }),
+      prisma.game.delete({
+        where: {
+          id,
+        },
+      }),
+    ]);
+
+    return new Response(JSON.stringify({ message: "Game deleted" }), {
+      status: 200,
+    });
+  } catch (error) {
+    console.error("Error deleting game:", error);
+    return new Response(JSON.stringify({ message: "Internal server error" }), {
+      status: 500,
+    });
+  }
+}

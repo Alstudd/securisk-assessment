@@ -232,10 +232,13 @@ export async function DELETE(req: Request) {
       });
     }
 
-    await prisma.quiz.delete({ where: { id } });
+    await Promise.all([
+      prisma.quizQuestion.deleteMany({ where: { quizId: id } }),
+      prisma.quiz.delete({ where: { id } }),
+    ]);
 
     return new Response(
-      JSON.stringify({ message: "Quiz successfully deleted" }),
+      JSON.stringify({ message: "Quiz deleted" }),
       { status: 200 },
     );
   } catch (error) {

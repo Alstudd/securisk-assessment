@@ -317,7 +317,15 @@ export default function AddEditQuizDialog({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-h-[500px] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{quizToEdit ? "Edit Assessment" : "Add Assessment"}</DialogTitle>
+          <DialogTitle>
+            {quizToEdit ? "Edit Assessment" : "Add Assessment"}
+            {quizToEdit && (
+              <span className="ml-2 text-sm text-gray-500">
+                (Warning: Deleting an assessment will delete all associated
+                reports. Please proceed with caution.)
+              </span>
+            )}
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
