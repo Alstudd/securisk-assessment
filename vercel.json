@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "src/app/api/questionBanks/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
