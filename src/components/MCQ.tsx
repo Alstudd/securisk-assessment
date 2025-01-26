@@ -33,10 +33,15 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   const [timeStarted, setTimeStarted] = useState<Date>(new Date());
   const [hasEnded, setHasEnded] = useState<boolean>(false);
   const [now, setNow] = useState<Date>(new Date());
-  const [timeLeft, setTimeLeft] = useState<number | null>(quiz.timer || null);
   const [currentQuestionTimer, setCurrentQuestionTimer] = useState<
     number | null
   >(quiz.timer || null);
+  const [currentQuestionStartTime, setCurrentQuestionStartTime] =
+    useState<Date>(new Date());
+
+  useEffect(() => {
+    setCurrentQuestionStartTime(new Date());
+  }, [currentQuestionIndex]);
 
   useEffect(() => {
     setCurrentQuestionTimer(quiz.timer || null);
@@ -91,7 +96,9 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
       gameId,
       questionId: currentQuestion.id,
       selectedOption,
-      timeTookToAnswer: quiz.timer ? quiz.timer - currentQuestionTimer! : null,
+      timeTookToAnswer: quiz.timer
+        ? quiz.timer - currentQuestionTimer!
+        : differenceInSeconds(new Date(), currentQuestionStartTime),
     };
 
     try {
