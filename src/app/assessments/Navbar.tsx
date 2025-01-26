@@ -42,13 +42,13 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            {user?.emailAddresses[0]?.emailAddress ===
-              "souzaagnel@gmail.com" && (
+            {/* {user?.emailAddresses[0]?.emailAddress ===
+              "souzaagnel@gmail.com" && ( */}
               <Button onClick={() => setShowAddEditQuizDialog(true)}>
                 <Plus size={20} className="mr-2" />
                 Add Assessment
               </Button>
-            )}
+            {/* )} */}
             <DropdownNav />
           </div>
         </div>

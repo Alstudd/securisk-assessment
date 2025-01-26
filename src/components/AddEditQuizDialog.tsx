@@ -31,6 +31,7 @@ import {
 import { Plus, X } from "lucide-react";
 import { Button } from "./ui/button";
 import axios from "axios";
+import { Switch } from "./ui/switch";
 
 interface SubtopicWithSelected extends Subtopic {
   selected?: boolean;
@@ -76,6 +77,11 @@ export default function AddEditQuizDialog({
   );
   const [newEmails, setNewEmails] = useState<string[]>([]);
   const [inputEmail, setInputEmail] = useState("");
+
+  const [isTimerEnabled, setIsTimerEnabled] = useState(
+    quizToEdit?.timer !== null && quizToEdit?.timer !== undefined
+  );
+
   const router = useRouter();
 
   const form = useForm({
@@ -236,7 +242,7 @@ export default function AddEditQuizDialog({
         subtopics: selectedSubtopics,
         questionCount: Number(input.questionCount),
         accessEmails,
-        timer: input.timer ? Number(input.timer) : null,
+        timer: isTimerEnabled && input.timer ? Number(input.timer) : null,
       };
 
       console.log(payload);
@@ -399,28 +405,45 @@ export default function AddEditQuizDialog({
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="timer"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Time per Question in seconds{" "}
-                    <span className="text-gray-500 dark:text-gray-400">
-                      (optional)
-                    </span>
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      {...field}
-                      placeholder="Leave blank for unlimited time"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <FormItem className="flex items-center space-x-2">
+              <FormLabel>Enable Timer</FormLabel>
+              <Switch
+                style={{ marginBottom: "8px" }}
+                checked={isTimerEnabled}
+                onCheckedChange={(checked) => {
+                  setIsTimerEnabled(checked);
+                  if (!checked) {
+                    form.setValue('timer', undefined);
+                  }
+                }}
+              />
+            </FormItem>
+
+            {isTimerEnabled && (
+              <FormField
+                control={form.control}
+                name="timer"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Time per Question in seconds{" "}
+                      <span className="text-gray-500 dark:text-gray-400">
+                        (required when timer is enabled)
+                      </span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        {...field}
+                        placeholder="Enter time per question"
+                        required={isTimerEnabled}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
 
             <div className="flex flex-wrap gap-4">
               {subtopics.map((sub) => (

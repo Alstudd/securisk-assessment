@@ -18,7 +18,8 @@ export const createQuizSchema = z.object({
     .number()
     .int()
     .positive({ message: "Timer must be a positive integer" })
-    .optional(),
+    .optional()
+    .nullable(),
   subtopics: z
     .array(
       z.object({
