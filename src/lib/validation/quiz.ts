@@ -14,6 +14,11 @@ export const createQuizSchema = z.object({
     .number()
     .int()
     .positive({ message: "Question count must be a positive integer" }),
+  timer: z
+    .number()
+    .int()
+    .positive({ message: "Timer must be a positive integer" })
+    .optional(),
   subtopics: z
     .array(
       z.object({

@@ -23,6 +23,7 @@ const QuestionsList = ({ questions, answers }: any) => {
           <TableHead>Question</TableHead>
           <TableHead>Answer</TableHead>
           <TableHead>Points</TableHead>
+          <TableHead>Time taken</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -30,6 +31,9 @@ const QuestionsList = ({ questions, answers }: any) => {
           const userAnswer = answers.find(
             (answer: any) => answer.questionId === questions[index].id,
           )?.selectedOption;
+          const timeTookToAnswer = answers.find(
+            (answer: any) => answer.questionId === questions[index].id,
+          )?.timeTookToAnswer;
 
           return (
             <TableRow key={index}>
@@ -42,6 +46,9 @@ const QuestionsList = ({ questions, answers }: any) => {
               </TableCell>
               <TableCell className="font-semibold">
                 {userAnswer?.score || "No score provided"}
+              </TableCell>
+              <TableCell className="font-semibold">
+                {timeTookToAnswer ? `${timeTookToAnswer}s` : "No time provided"}
               </TableCell>
             </TableRow>
           );

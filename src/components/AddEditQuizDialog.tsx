@@ -45,6 +45,7 @@ interface AddEditQuizDialogProps {
     questionCount: number;
     questionBankId: string;
     accessEmails: string[];
+    timer: number | null;
     questionBank: {
       topic: string;
       subtopics: SubtopicWithSelected[];
@@ -81,6 +82,7 @@ export default function AddEditQuizDialog({
     defaultValues: {
       questionCount: quizToEdit?.questionCount || 1,
       quizName: quizToEdit?.name || "",
+      timer: quizToEdit?.timer || undefined,
     },
   });
 
@@ -234,6 +236,7 @@ export default function AddEditQuizDialog({
         subtopics: selectedSubtopics,
         questionCount: Number(input.questionCount),
         accessEmails,
+        timer: input.timer ? Number(input.timer) : null,
       };
 
       console.log(payload);
@@ -390,6 +393,29 @@ export default function AddEditQuizDialog({
                   <FormLabel>Question Count</FormLabel>
                   <FormControl>
                     <Input type="number" {...field} placeholder="Enter count" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="timer"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Time per Question in seconds{" "}
+                    <span className="text-gray-500 dark:text-gray-400">
+                      (optional)
+                    </span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      {...field}
+                      placeholder="Leave blank for unlimited time"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

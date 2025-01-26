@@ -33,6 +33,27 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   const [timeStarted, setTimeStarted] = useState<Date>(new Date());
   const [hasEnded, setHasEnded] = useState<boolean>(false);
   const [now, setNow] = useState<Date>(new Date());
+  const [timeLeft, setTimeLeft] = useState<number | null>(quiz.timer || null);
+  const [currentQuestionTimer, setCurrentQuestionTimer] = useState<
+    number | null
+  >(quiz.timer || null);
+
+  useEffect(() => {
+    setCurrentQuestionTimer(quiz.timer || null);
+  }, [currentQuestionIndex, quiz.timer]);
+
+  useEffect(() => {
+    if (currentQuestionTimer === null) return;
+
+    if (currentQuestionTimer > 0) {
+      const timer = setTimeout(() => {
+        setCurrentQuestionTimer((prev) => prev! - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      handleNext();
+    }
+  }, [currentQuestionTimer]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,25 +70,28 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   }, []);
 
   const handleNext = async () => {
-    if (selectedChoice === null) {
+    if (quiz.timer && quiz.timer > 0 && selectedChoice === null) {
+      if (currentQuestionIndex + 1 < questions.length) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setSelectedChoice(null);
+      } else {
+        endGame(0);
+      }
+      return;
+    } else if (selectedChoice === null) {
       console.warn("No choice selected. Please select an option.");
       return;
     }
 
     setIsLoading(true);
-
     const selectedOption = options[selectedChoice];
     const optionScore = selectedOption?.score ?? 0;
-
-    // console.log("Current Question Index:", currentQuestionIndex);
-    // console.log("Selected Option:", selectedOption);
-    // console.log("Option Score:", optionScore);
-    // console.log("Score Before Update:", score);
 
     const answer = {
       gameId,
       questionId: currentQuestion.id,
       selectedOption,
+      timeTookToAnswer: quiz.timer ? quiz.timer - currentQuestionTimer! : null,
     };
 
     try {
@@ -77,11 +101,7 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
         body: JSON.stringify(answer),
       });
 
-      setScore((prev) => {
-        const updatedScore = prev + optionScore;
-        // console.log("Score After Update:", updatedScore);
-        return updatedScore;
-      });
+      setScore((prev) => prev + optionScore);
     } catch (error) {
       console.error("Error saving answer:", error);
     }
@@ -172,7 +192,13 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
         </div>
         <div className="mt-3 flex self-start text-slate-400">
           <Timer className="mr-2" />
-          {formatTimeDelta(differenceInSeconds(now, timeStarted))}
+          {quiz.timer && quiz.timer > 0 ? (
+            <span className={currentQuestionTimer! <= 5 ? "text-red-500" : ""}>
+              {currentQuestionTimer} sec
+            </span>
+          ) : (
+            formatTimeDelta(differenceInSeconds(now, timeStarted))
+          )}
         </div>
       </div>
       <Card className="mt-4 w-full">

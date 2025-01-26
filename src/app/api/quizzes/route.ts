@@ -19,8 +19,14 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, questionBankId, accessEmails, questionCount, subtopics } =
-      parseResult.data;
+    const {
+      name,
+      questionBankId,
+      accessEmails,
+      questionCount,
+      timer,
+      subtopics,
+    } = parseResult.data;
     const { userId } = auth();
 
     if (!userId) {
@@ -75,6 +81,7 @@ export async function POST(req: Request) {
         questionCount,
         questionBankId,
         accessEmails,
+        timer,
         questions: { create: questions.reverse() },
       },
       include: { questions: true },
@@ -101,8 +108,15 @@ export async function PUT(req: Request) {
       );
     }
 
-    const { id, questionBankId, name, accessEmails, subtopics, questionCount } =
-      parseResult.data;
+    const {
+      id,
+      questionBankId,
+      name,
+      accessEmails,
+      subtopics,
+      questionCount,
+      timer,
+    } = parseResult.data;
     const { userId } = auth();
 
     if (!userId) {
@@ -177,6 +191,7 @@ export async function PUT(req: Request) {
         name,
         accessEmails,
         questionCount,
+        timer,
         questions: {
           // delete all and recreate
           deleteMany: {},
@@ -237,10 +252,9 @@ export async function DELETE(req: Request) {
       prisma.quiz.delete({ where: { id } }),
     ]);
 
-    return new Response(
-      JSON.stringify({ message: "Quiz deleted" }),
-      { status: 200 },
-    );
+    return new Response(JSON.stringify({ message: "Quiz deleted" }), {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: "Internal server error" }), {

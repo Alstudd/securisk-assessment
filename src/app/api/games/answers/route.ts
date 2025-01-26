@@ -2,7 +2,8 @@ import { auth } from "@clerk/nextjs";
 import prisma from "@/lib/db/prisma";
 
 export async function POST(req: Request) {
-  const { gameId, questionId, selectedOption } = await req.json();
+  const { gameId, questionId, selectedOption, timeTookToAnswer } =
+    await req.json();
   const { userId } = auth();
 
   if (!userId) {
@@ -17,6 +18,7 @@ export async function POST(req: Request) {
         gameId,
         questionId,
         selectedOption,
+        timeTookToAnswer,
       },
     });
 

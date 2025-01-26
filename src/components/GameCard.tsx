@@ -63,6 +63,12 @@ export function GameCard({
                 <span className="font-bold">QB: </span>
                 {quiz.questionBank.topic}
               </div>
+              {quiz.timer && (
+                <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
+                  <span className="font-bold">Timer : </span>
+                  {quiz.timer}
+                </div>
+              )}
               <div className="w-fit rounded-md bg-black p-2 text-[14px] font-medium text-white dark:bg-white dark:text-black">
                 <span className="font-bold">Question Count: </span>
                 {quiz.questionCount}
