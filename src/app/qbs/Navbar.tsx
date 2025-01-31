@@ -43,8 +43,10 @@ export default function NavBar() {
               }}
             />
             <ThemeToggleButton />
-            {user?.emailAddresses[0]?.emailAddress ===
-              "souzaagnel@gmail.com" && (
+            {(user?.emailAddresses[0]?.emailAddress ===
+              "souzaagnel@gmail.com" ||
+              user?.emailAddresses[0]?.emailAddress ===
+                "alstonsoares17@gmail.com") && (
               <Button onClick={() => setShowAddEditQuestionBankDialog(true)}>
                 <Plus size={20} className="mr-2" />
                 Add QB

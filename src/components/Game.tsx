@@ -1,20 +1,7 @@
 import { Game as GameModel } from "@prisma/client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-import AddEditQuizDialog from "./AddEditQuizDialog";
-import { Button, buttonVariants } from "./ui/button";
-import { BarChart, Edit } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import prisma from "@/lib/db/prisma";
 import { auth } from "@clerk/nextjs";
 import { createClerkClient } from "@clerk/backend";
-import LoadingButton from "./ui/loading-button";
 import { GameCard } from "./GameCard";
 
 const clerkClient = createClerkClient({

@@ -65,23 +65,43 @@ export async function POST(req: Request) {
 export async function DELETE(req: Request) {
   const { id }: { id: string } = await req.json();
   const { userId } = auth();
-
+  
   if (!userId) {
     return new Response(JSON.stringify({ message: "Unauthorized" }), {
       status: 401,
     });
   }
-
+  
   try {
     const game = await prisma.game.findUnique({
       where: {
         id,
       },
     });
-
+    
     if (!game) {
       return new Response(JSON.stringify({ message: "Game not found" }), {
         status: 404,
+      });
+    }
+
+    const quizId = game?.quizId;
+
+    const quiz = await prisma.quiz.findUnique({
+      where: {
+        id: quizId,
+      },
+    });
+
+    if (!quiz) {
+      return new Response(JSON.stringify({ message: "Quiz not found" }), {
+        status: 404,
+      });
+    }
+
+    if (quiz.userId !== userId) {
+      return new Response(JSON.stringify({ message: "Unauthorized" }), {
+        status: 401,
       });
     }
 

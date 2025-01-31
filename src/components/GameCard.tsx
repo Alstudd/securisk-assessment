@@ -15,6 +15,7 @@ import { BarChart, Trash } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
 export interface GameCardProps {
   userId: string;
@@ -32,6 +33,7 @@ export function GameCard({
   quizMadeByUserEmail,
 }: GameCardProps) {
   const router = useRouter();
+  const { user } = useUser();
   const [deleteInProgress, setDeleteInProgress] = useState(false);
   const deleteGame = async () => {
     // first confirm then delete
@@ -79,7 +81,9 @@ export function GameCard({
               </div>
             </div>
           </div>
-          {userId === quiz.userId && (
+          {(userId === quiz.userId ||
+            user?.emailAddresses[0]?.emailAddress ===
+              "alstonsoares17@gmail.com") && (
             <div className="absolute right-6 top-4">
               <LoadingButton
                 variant="destructive"
@@ -169,7 +173,9 @@ export function GameCard({
           </div>
         </div>
         {/* access protection */}
-        {userId === quiz.userId && (
+        {(userId === quiz.userId ||
+          user?.emailAddresses[0]?.emailAddress ===
+            "alstonsoares17@gmail.com") && (
           <Link
             href={`/reports/${game.id}`}
             className={cn(
