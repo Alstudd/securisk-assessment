@@ -12,6 +12,11 @@ import {
 } from "@/components/ui/table";
 
 const QuestionsList = ({ questions, answers }: any) => {
+  const attemptedQuestionIds = answers.map((answer: any) => answer.questionId);
+  const unattemptedQuestions = questions.filter(
+    (question: any) => !attemptedQuestionIds.includes(question.id),
+  );
+
   return (
     <Table className="mt-4">
       <TableCaption>End of list.</TableCaption>
@@ -27,32 +32,49 @@ const QuestionsList = ({ questions, answers }: any) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {questions.map((item: any, index: any) => {
-          const userAnswer = answers.find(
-            (answer: any) => answer.questionId === questions[index].id,
-          )?.selectedOption;
-          const timeTookToAnswer = answers.find(
-            (answer: any) => answer.questionId === questions[index].id,
-          )?.timeTookToAnswer;
+        {answers.map((answer: any, index: any) => {
+          const question = questions.find(
+            (q: any) => q.id === answer.questionId,
+          );
+
+          if (!question) return null;
 
           return (
-            <TableRow key={index}>
+            <TableRow key={`answered-${index}`}>
               <TableCell>{index + 1}</TableCell>
-              <TableCell>{item.subtopic.name}</TableCell>
-              <TableCell>{item.scenario}</TableCell>
-              <TableCell>{item.quest}</TableCell>
+              <TableCell>{question.subtopic.name}</TableCell>
+              <TableCell>{question.scenario}</TableCell>
+              <TableCell>{question.quest}</TableCell>
               <TableCell className="font-semibold">
-                {userAnswer?.name || "No answer provided"}
+                {answer.selectedOption?.name || "No answer provided"}
               </TableCell>
               <TableCell className="font-semibold">
-                {userAnswer?.score || "No score provided"}
+                {answer.selectedOption?.score || "No points provided"}
               </TableCell>
               <TableCell className="font-semibold">
-                {timeTookToAnswer >= 0 ? `${timeTookToAnswer}s` : "No time provided"}
+                {answer.timeTookToAnswer === 0
+                  ? "0s"
+                  : answer.timeTookToAnswer
+                    ? `${answer.timeTookToAnswer}s`
+                    : "No time provided"}
               </TableCell>
             </TableRow>
           );
         })}
+
+        {unattemptedQuestions.map((question: any, index: any) => (
+          <TableRow key={`unattempted-${index}`}>
+            <TableCell>{answers.length + index + 1}</TableCell>
+            <TableCell>{question.subtopic.name}</TableCell>
+            <TableCell>{question.scenario}</TableCell>
+            <TableCell>{question.quest}</TableCell>
+            <TableCell className="font-semibold text-gray-500">
+              Not attempted
+            </TableCell>
+            <TableCell className="font-semibold text-gray-500">-</TableCell>
+            <TableCell className="font-semibold text-gray-500">-</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );

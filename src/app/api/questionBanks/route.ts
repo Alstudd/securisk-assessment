@@ -84,7 +84,7 @@ export async function PUT(req: Request) {
     const parseResult = updateQuestionBankSchema.safeParse(body);
     const parseTopicResult = updateQuestionBankTopicSchema.safeParse(body);
     if (!parseResult.success && !parseTopicResult.success) {
-      console.error(parseResult.error);
+      console.error(parseResult.error, parseTopicResult.error);
       return new Response(JSON.stringify({ error: "Invalid input" }), {
         status: 400,
       });
