@@ -46,17 +46,23 @@ const QuestionsList = ({ questions, answers }: any) => {
               <TableCell>{question.scenario}</TableCell>
               <TableCell>{question.quest}</TableCell>
               <TableCell className="font-semibold">
-                {answer.selectedOption?.name || "No answer provided"}
+                {answer.selectedOption?.name || (
+                  <span className="text-red-500">Not attempted</span>
+                )}
               </TableCell>
               <TableCell className="font-semibold">
-                {answer.selectedOption?.score || "No points provided"}
+                {answer.selectedOption?.score || (
+                  <span className="text-red-500">-</span>
+                )}
               </TableCell>
               <TableCell className="font-semibold">
-                {answer.timeTookToAnswer === 0
-                  ? "0s"
-                  : answer.timeTookToAnswer
-                    ? `${answer.timeTookToAnswer}s`
-                    : "No time provided"}
+                {answer.timeTookToAnswer === 0 ? (
+                  "0s"
+                ) : answer.timeTookToAnswer ? (
+                  `${answer.timeTookToAnswer}s`
+                ) : (
+                  <span className="text-red-500">-</span>
+                )}
               </TableCell>
             </TableRow>
           );
@@ -68,11 +74,11 @@ const QuestionsList = ({ questions, answers }: any) => {
             <TableCell>{question.subtopic.name}</TableCell>
             <TableCell>{question.scenario}</TableCell>
             <TableCell>{question.quest}</TableCell>
-            <TableCell className="font-semibold text-gray-500">
+            <TableCell className="font-semibold text-red-500">
               Not attempted
             </TableCell>
-            <TableCell className="font-semibold text-gray-500">-</TableCell>
-            <TableCell className="font-semibold text-gray-500">-</TableCell>
+            <TableCell className="font-semibold text-red-500">-</TableCell>
+            <TableCell className="font-semibold text-red-500">-</TableCell>
           </TableRow>
         ))}
       </TableBody>

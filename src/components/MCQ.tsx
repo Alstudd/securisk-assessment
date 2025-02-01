@@ -93,24 +93,26 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   }, [hasEnded, score, currentQuestionIndex]);
 
   const handleNext = async () => {
-    if (quiz.timer && quiz.timer > 0 && selectedChoice === null) {
-      if (currentQuestionIndex + 1 < questions.length) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedChoice(null);
-      } else {
-        endGame(0);
-      }
-      return;
-    } else if (selectedChoice === null) {
-      console.warn("No choice selected. Please select an option.");
-      return;
-    }
-
     setIsLoading(true);
-    const selectedOption = options[selectedChoice];
-    const optionScore = selectedOption?.score ?? 0;
 
     if (!answeredQuestions.has(currentQuestion.id)) {
+      let selectedOption;
+      let optionScore = 0;
+
+      if (quiz.timer && quiz.timer > 0 && selectedChoice === null) {
+        selectedOption = {
+          name: "",
+          score: 0,
+        };
+      } else if (selectedChoice === null && !quiz.timer) {
+        setIsLoading(false);
+        console.warn("No choice selected. Please select an option.");
+        return;
+      } else {
+        selectedOption = options[selectedChoice!];
+        optionScore = selectedOption?.score ?? 0;
+      }
+
       setScore((prev) => prev + optionScore);
       setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id));
 
