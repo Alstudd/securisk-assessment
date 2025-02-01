@@ -48,7 +48,7 @@ const QuestionsList = ({ questions, answers }: any) => {
                 {userAnswer?.score || "No score provided"}
               </TableCell>
               <TableCell className="font-semibold">
-                {timeTookToAnswer ? `${timeTookToAnswer}s` : "No time provided"}
+                {timeTookToAnswer >= 0 ? `${timeTookToAnswer}s` : "No time provided"}
               </TableCell>
             </TableRow>
           );

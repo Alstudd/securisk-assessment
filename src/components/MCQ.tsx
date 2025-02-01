@@ -38,6 +38,9 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
   >(quiz.timer || null);
   const [currentQuestionStartTime, setCurrentQuestionStartTime] =
     useState<Date>(new Date());
+  const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(
+    new Set(),
+  );
 
   useEffect(() => {
     setCurrentQuestionStartTime(new Date());
@@ -74,6 +77,21 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
     setTimeStarted(new Date());
   }, []);
 
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (!hasEnded) {
+        event.preventDefault();
+        endGame(0);
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [hasEnded, score, currentQuestionIndex]);
+
   const handleNext = async () => {
     if (quiz.timer && quiz.timer > 0 && selectedChoice === null) {
       if (currentQuestionIndex + 1 < questions.length) {
@@ -92,32 +110,35 @@ export default function MCQ({ quiz, questions, gameId }: MCQProps) {
     const selectedOption = options[selectedChoice];
     const optionScore = selectedOption?.score ?? 0;
 
-    const answer = {
-      gameId,
-      questionId: currentQuestion.id,
-      selectedOption,
-      timeTookToAnswer: quiz.timer
-        ? quiz.timer - currentQuestionTimer!
-        : differenceInSeconds(new Date(), currentQuestionStartTime),
-    };
-
-    try {
-      await fetch("/api/games/answers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(answer),
-      });
-
+    if (!answeredQuestions.has(currentQuestion.id)) {
       setScore((prev) => prev + optionScore);
-    } catch (error) {
-      console.error("Error saving answer:", error);
-    }
+      setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id));
 
-    if (currentQuestionIndex + 1 < questions.length) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedChoice(null);
-    } else {
-      endGame(optionScore);
+      const answer = {
+        gameId,
+        questionId: currentQuestion.id,
+        selectedOption,
+        timeTookToAnswer: quiz.timer
+          ? quiz.timer - currentQuestionTimer!
+          : differenceInSeconds(new Date(), currentQuestionStartTime),
+      };
+
+      try {
+        await fetch("/api/games/answers", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(answer),
+        });
+      } catch (error) {
+        console.error("Error saving answer:", error);
+      }
+
+      if (currentQuestionIndex + 1 < questions.length) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setSelectedChoice(null);
+      } else {
+        endGame(optionScore);
+      }
     }
 
     setIsLoading(false);
